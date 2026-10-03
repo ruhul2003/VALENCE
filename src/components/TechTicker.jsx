@@ -1,0 +1,47 @@
+"use client";
+
+export default function TechTicker() {
+  const technologies = [
+    { name: "Next.js 16", tag: "App Router" },
+    { name: "React 19", tag: "Concurrent Core" },
+    { name: "Tailwind CSS v4", tag: "Design Engine" },
+    { name: "TypeScript", tag: "Type-Safe" },
+    { name: "Node.js", tag: "Microservices" },
+    { name: "Python", tag: "AI / ML Pipelines" },
+    { name: "Kubernetes", tag: "Cloud Orchestration" },
+    { name: "AWS Cloud", tag: "Scalable Infra" },
+    { name: "Docker", tag: "Containers" },
+    { name: "PostgreSQL", tag: "Distributed Relational" },
+    { name: "Redis", tag: "High-Throughput In-Memory" },
+    { name: "GraphQL", tag: "Declarative API" },
+    { name: "OpenAI & Claude", tag: "LLM Agents" },
+  ];
+
+  return (
+    <section className="border-y border-black/5 bg-[#F8FAFC] py-6 overflow-hidden select-none">
+      <div className="relative w-full overflow-hidden">
+        {/* Soft edge gradients */}
+        <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-[#F8FAFC] to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[#F8FAFC] to-transparent z-10 pointer-events-none" />
+
+        <div className="animate-marquee flex items-center gap-12 whitespace-nowrap">
+          {/* Double list for smooth infinite scroll */}
+          {[...technologies, ...technologies, ...technologies].map((tech, idx) => (
+            <div
+              key={idx}
+              className="inline-flex items-center gap-3 px-4 py-2 rounded-xl bg-white border border-gray-200/70 shadow-xs hover:border-black/30 transition-colors"
+            >
+              <span className="w-2 h-2 rounded-full bg-black/60" />
+              <span className="text-sm font-bold tracking-tight text-neutral-900 uppercase">
+                {tech.name}
+              </span>
+              <span className="text-[11px] font-medium text-neutral-400 border-l border-gray-200 pl-2">
+                {tech.tag}
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}

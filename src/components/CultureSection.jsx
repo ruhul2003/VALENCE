@@ -1,0 +1,67 @@
+"use client";
+
+import Image from "next/image";
+
+export default function CultureSection() {
+  const photos = [
+    {
+      title: "Global Engineering All-Hands",
+      location: "San Francisco Lab",
+      image: "/assets/engineers-team.jpg",
+    },
+    {
+      title: "Autonomous Agent Hackathon",
+      location: "London Studio",
+      image: "/assets/project-novaflow.jpg",
+    },
+    {
+      title: "Cloud Infrastructure Summit",
+      location: "Singapore Tech Hub",
+      image: "/assets/hero-glass.jpg",
+    },
+  ];
+
+  return (
+    <section className="py-20 bg-white border-t border-gray-100">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+        <div className="space-y-4 mb-12">
+          <div className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.2em] text-neutral-500 uppercase">
+            <span className="w-1.5 h-1.5 rounded-full bg-black" />
+            <span>CULTURE & LIFE AT VALENCE</span>
+          </div>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold uppercase tracking-tight text-neutral-950">
+            ENGINEERING CULTURE WITHOUT BORDERS.
+          </h2>
+        </div>
+
+        {/* 3-Photo Horizontal Row (Matching Wilbur's 3-card photo strip) */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {photos.map((item, index) => (
+            <div
+              key={index}
+              className="group relative aspect-[4/3] rounded-3xl overflow-hidden bg-neutral-900 shadow-md hover:shadow-xl transition-all duration-500"
+            >
+              <Image
+                src={item.image}
+                alt={item.title}
+                fill
+                sizes="(max-width: 768px) 100vw, 33vw"
+                className="object-cover object-center transition-transform duration-700 group-hover:scale-105 opacity-85 group-hover:opacity-100"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
+              
+              <div className="absolute bottom-5 left-5 right-5 text-white">
+                <span className="text-[11px] font-semibold tracking-wider uppercase text-cyan-300 block mb-0.5">
+                  {item.location}
+                </span>
+                <h3 className="text-base font-bold tracking-tight">
+                  {item.title}
+                </h3>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
