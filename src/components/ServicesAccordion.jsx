@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { ArrowDown, ArrowUpRight } from "lucide-react";
 
 export default function ServicesAccordion({ onOpenContact }) {
@@ -75,7 +76,13 @@ export default function ServicesAccordion({ onOpenContact }) {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 xl:gap-20 items-start">
           
           {/* Left Column: Fixed / Sticky Title */}
-          <div className="lg:col-span-4 lg:sticky lg:top-32 space-y-6">
+          <motion.div
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-4 lg:sticky lg:top-32 space-y-6"
+          >
             <div className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.2em] text-neutral-500 uppercase">
               <span className="w-1.5 h-1.5 rounded-full bg-black" />
               <span>SERVICES</span>
@@ -92,15 +99,17 @@ export default function ServicesAccordion({ onOpenContact }) {
             </p>
 
             <div className="pt-4">
-              <button
+              <motion.button
+                whileHover={{ scale: 1.04 }}
+                whileTap={{ scale: 0.96 }}
                 onClick={onOpenContact}
                 className="group rounded-full bg-black text-white hover:bg-neutral-800 px-7 py-4 text-sm font-semibold flex items-center gap-3 transition-all duration-300 shadow-md cursor-pointer"
               >
                 <span>Schedule Discovery Call</span>
                 <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-              </button>
+              </motion.button>
             </div>
-          </div>
+          </motion.div>
 
           {/* Right Column: Hairline Dividers & Expandable Accordion (Wilbur Style) */}
           <div className="lg:col-span-8 border-t border-neutral-900">
@@ -119,55 +128,69 @@ export default function ServicesAccordion({ onOpenContact }) {
                     <h3 className="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-bold uppercase tracking-tight text-neutral-950 pr-6 group-hover:text-neutral-700 transition-colors">
                       {cap.title}
                     </h3>
-                    <div className="w-11 h-11 rounded-full border border-neutral-300 group-hover:border-black flex items-center justify-center shrink-0 transition-colors">
+                    <motion.div
+                      animate={{ rotate: isOpen ? 45 : 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="w-11 h-11 rounded-full border border-neutral-300 group-hover:border-black flex items-center justify-center shrink-0 transition-colors"
+                    >
                       {isOpen ? (
                         <ArrowUpRight className="w-5 h-5 text-black" />
                       ) : (
                         <ArrowDown className="w-5 h-5 text-neutral-600 group-hover:text-black transition-colors" />
                       )}
-                    </div>
+                    </motion.div>
                   </button>
 
-                  {/* Expandable Body */}
-                  {isOpen && (
-                    <div className="pb-8 pt-2 space-y-6 animate-in fade-in slide-in-from-top-2 duration-300">
-                      <p className="text-base sm:text-lg text-neutral-700 leading-relaxed max-w-4xl">
-                        {cap.description}
-                      </p>
+                  {/* Expandable Body with Framer Motion AnimatePresence */}
+                  <AnimatePresence initial={false}>
+                    {isOpen && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                        className="overflow-hidden"
+                      >
+                        <div className="pb-8 pt-2 space-y-6">
+                          <p className="text-base sm:text-lg text-neutral-700 leading-relaxed max-w-4xl">
+                            {cap.description}
+                          </p>
 
-                      {/* Tech Pills */}
-                      <div className="flex flex-wrap gap-2.5 pt-1">
-                        {cap.techs.map((t) => (
-                          <span
-                            key={t}
-                            className="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white border border-gray-300 text-neutral-800 shadow-xs"
-                          >
-                            {t}
-                          </span>
-                        ))}
-                      </div>
+                          {/* Tech Pills */}
+                          <div className="flex flex-wrap gap-2.5 pt-1">
+                            {cap.techs.map((t) => (
+                              <span
+                                key={t}
+                                className="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white border border-gray-300 text-neutral-800 shadow-xs"
+                              >
+                                {t}
+                              </span>
+                            ))}
+                          </div>
 
-                      {/* Visual Preview Box (Replicating Wilbur's expanded card visual) */}
-                      <div className="rounded-2xl p-6 sm:p-8 bg-neutral-900 text-white border border-neutral-800 shadow-lg relative overflow-hidden">
-                        <div className="flex flex-wrap items-center justify-between gap-4 mb-4">
-                          <span className="text-xs font-bold uppercase tracking-wider text-cyan-400 bg-cyan-950/60 px-3 py-1 rounded-full border border-cyan-800/40">
-                            {cap.preview.badge}
-                          </span>
-                          <div className="flex items-baseline gap-2">
-                            <span className="text-3xl font-extrabold text-white">
-                              {cap.preview.metric}
-                            </span>
-                            <span className="text-xs text-neutral-400 uppercase tracking-wide">
-                              {cap.preview.metricLabel}
-                            </span>
+                          {/* Visual Preview Box (Replicating Wilbur's expanded card visual) */}
+                          <div className="rounded-2xl p-6 sm:p-8 bg-neutral-900 text-white border border-neutral-800 shadow-lg relative overflow-hidden">
+                            <div className="flex flex-wrap items-center justify-between gap-4 mb-4">
+                              <span className="text-xs font-bold uppercase tracking-wider text-cyan-400 bg-cyan-950/60 px-3 py-1 rounded-full border border-cyan-800/40">
+                                {cap.preview.badge}
+                              </span>
+                              <div className="flex items-baseline gap-2">
+                                <span className="text-3xl font-extrabold text-white">
+                                  {cap.preview.metric}
+                                </span>
+                                <span className="text-xs text-neutral-400 uppercase tracking-wide">
+                                  {cap.preview.metricLabel}
+                                </span>
+                              </div>
+                            </div>
+                            <p className="text-sm sm:text-base text-neutral-300 font-light leading-relaxed">
+                              {cap.preview.highlight}
+                            </p>
                           </div>
                         </div>
-                        <p className="text-sm sm:text-base text-neutral-300 font-light leading-relaxed">
-                          {cap.preview.highlight}
-                        </p>
-                      </div>
-                    </div>
-                  )}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </div>
               );
             })}
