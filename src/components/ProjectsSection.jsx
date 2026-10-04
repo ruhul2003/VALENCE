@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 
 export default function ProjectsSection({ onOpenContact }) {
@@ -48,47 +49,62 @@ export default function ProjectsSection({ onOpenContact }) {
   ];
 
   return (
-    <section id="projects" className="py-24 lg:py-32 bg-white border-t border-gray-200">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+    <section id="projects" className="py-24 lg:py-36 bg-white border-t border-gray-200">
+      <div className="max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-16 xl:px-20">
         
         {/* Top Header Row (Wilbur Layout) */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 lg:mb-20 gap-6">
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="flex flex-col md:flex-row md:items-end justify-between mb-16 lg:mb-24 gap-6"
+        >
           <div className="space-y-4">
             <div className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.2em] text-neutral-500 uppercase">
               <span className="w-1.5 h-1.5 rounded-full bg-black" />
               <span>OUR WORK</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold uppercase tracking-tight text-neutral-950">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold uppercase tracking-tight text-neutral-950">
               OUR LATEST PROJECTS.
             </h2>
           </div>
 
-          <button
+          <motion.button
+            whileHover={{ scale: 1.04 }}
+            whileTap={{ scale: 0.96 }}
             onClick={onOpenContact}
-            className="group self-start md:self-auto rounded-full bg-black text-white hover:bg-neutral-800 px-6 py-3.5 text-sm font-semibold flex items-center gap-3 transition-all duration-300 shadow-md cursor-pointer"
+            className="group self-start md:self-auto rounded-full bg-black text-white hover:bg-neutral-800 px-7 py-4 text-sm font-semibold flex items-center gap-3 transition-all duration-300 shadow-md cursor-pointer"
           >
             <span>View all Projects</span>
             <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-          </button>
-        </div>
+          </motion.button>
+        </motion.div>
 
         {/* Projects Grid with Massive Numerals */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
-          {projects.map((proj) => (
-            <div key={proj.number} className="group flex flex-col space-y-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16 xl:gap-20">
+          {projects.map((proj, idx) => (
+            <motion.div
+              key={proj.number}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.7, delay: idx * 0.1, ease: [0.16, 1, 0.3, 1] }}
+              className="group flex flex-col space-y-4"
+            >
               
               {/* Massive Numeral (Wilbur signature style) */}
               <div className="flex items-baseline justify-between border-b border-gray-100 pb-2">
-                <span className="text-5xl sm:text-6xl lg:text-7xl font-light text-neutral-900 tracking-tight">
+                <span className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-light text-neutral-900 tracking-tight">
                   {proj.number}
                 </span>
-                <span className="text-xs font-bold uppercase tracking-wider text-neutral-400 group-hover:text-black transition-colors">
+                <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-neutral-400 group-hover:text-black transition-colors">
                   {proj.category}
                 </span>
               </div>
 
               {/* Project Card Image Container */}
-              <div className="relative aspect-[16/10] w-full rounded-3xl overflow-hidden bg-neutral-900 border border-gray-200/80 shadow-md group-hover:shadow-xl transition-all duration-500">
+              <div className="relative aspect-[16/10] lg:aspect-[16/9.5] w-full rounded-3xl overflow-hidden bg-neutral-900 border border-gray-200/80 shadow-md group-hover:shadow-2xl transition-all duration-500">
                 <Image
                   src={proj.image}
                   alt={proj.title}
@@ -96,43 +112,47 @@ export default function ProjectsSection({ onOpenContact }) {
                   sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-85 transition-opacity" />
                 
                 {/* Metric pill inside card */}
-                <div className="absolute top-4 right-4 px-3.5 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-white text-xs font-semibold tracking-wide">
+                <div className="absolute top-5 right-5 px-4 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-white text-xs sm:text-sm font-semibold tracking-wide">
                   {proj.metrics}
                 </div>
 
                 {/* Bottom title inside card */}
                 <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between">
                   <div className="text-white space-y-1">
-                    <h3 className="text-xl sm:text-2xl font-bold tracking-tight uppercase">
+                    <h3 className="text-2xl sm:text-3xl font-bold tracking-tight uppercase">
                       {proj.title}
                     </h3>
                   </div>
-                  <div className="w-10 h-10 rounded-full bg-white text-black flex items-center justify-center shadow-lg transition-transform group-hover:rotate-45">
-                    <ArrowUpRight className="w-5 h-5" />
-                  </div>
+                  <motion.div
+                    whileHover={{ rotate: 45 }}
+                    transition={{ type: "spring", stiffness: 300 }}
+                    className="w-12 h-12 rounded-full bg-white text-black flex items-center justify-center shadow-lg transition-transform group-hover:scale-105"
+                  >
+                    <ArrowUpRight className="w-6 h-6" />
+                  </motion.div>
                 </div>
               </div>
 
               {/* Project Description and Tags */}
-              <p className="text-sm text-neutral-600 leading-relaxed pt-1">
+              <p className="text-sm sm:text-base text-neutral-600 leading-relaxed pt-1">
                 {proj.description}
               </p>
 
-              <div className="flex flex-wrap gap-2 pt-1">
+              <div className="flex flex-wrap gap-2.5 pt-1">
                 {proj.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-gray-100 text-neutral-700"
+                    className="px-3 py-1.5 rounded-lg text-xs font-semibold bg-gray-100 text-neutral-700"
                   >
                     {tag}
                   </span>
                 ))}
               </div>
 
-            </div>
+            </motion.div>
           ))}
         </div>
 
