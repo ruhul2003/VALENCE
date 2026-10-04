@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { motion } from "framer-motion";
 import { CheckCircle2, ShieldCheck, Zap } from "lucide-react";
 
 export default function AboutSection() {
@@ -9,8 +10,13 @@ export default function AboutSection() {
       <div className="max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-16 xl:px-20">
         
         {/* Section Header: Wilbur Split Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start mb-16 lg:mb-20">
-          
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start mb-16 lg:mb-20"
+        >
           {/* Left Column: Tag and Main Headline */}
           <div className="lg:col-span-7 space-y-6">
             <div className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.2em] text-neutral-500 uppercase">
@@ -32,31 +38,37 @@ export default function AboutSection() {
             </p>
 
             <div className="grid grid-cols-2 gap-8 pt-6 border-t border-gray-200">
-              <div>
+              <motion.div whileHover={{ y: -2 }} transition={{ duration: 0.2 }}>
                 <span className="text-3xl lg:text-4xl font-bold text-neutral-900 block">
                   12+ Yrs
                 </span>
                 <span className="text-xs text-neutral-500 uppercase tracking-wider font-semibold">
                   Engineering Track Record
                 </span>
-              </div>
-              <div>
+              </motion.div>
+              <motion.div whileHover={{ y: -2 }} transition={{ duration: 0.2 }}>
                 <span className="text-3xl lg:text-4xl font-bold text-neutral-900 block">
                   45+
                 </span>
                 <span className="text-xs text-neutral-500 uppercase tracking-wider font-semibold">
                   Principal Architects & Devs
                 </span>
-              </div>
+              </motion.div>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Visual Cards Row: Faithful to Wilbur's side-by-side photo cards */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-10 items-stretch">
           
           {/* Left Card: Engineering Studio */}
-          <div className="md:col-span-6 lg:col-span-5 relative rounded-3xl overflow-hidden bg-neutral-900 min-h-[420px] lg:min-h-[520px] group shadow-xl">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="md:col-span-6 lg:col-span-5 relative rounded-3xl overflow-hidden bg-neutral-900 min-h-[420px] lg:min-h-[520px] group shadow-xl"
+          >
             <Image
               src="/assets/engineers-team.jpg"
               alt="Valence Software Engineering Team"
@@ -79,10 +91,16 @@ export default function AboutSection() {
                 fault-tolerant microservices, and reactive web applications.
               </p>
             </div>
-          </div>
+          </motion.div>
 
           {/* Right Card: Impact & Architecture Card */}
-          <div className="md:col-span-6 lg:col-span-7 flex flex-col justify-between rounded-3xl p-8 sm:p-10 lg:p-14 bg-neutral-950 text-white relative overflow-hidden shadow-xl">
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="md:col-span-6 lg:col-span-7 flex flex-col justify-between rounded-3xl p-8 sm:p-10 lg:p-14 bg-neutral-950 text-white relative overflow-hidden shadow-xl"
+          >
             {/* Ambient backdrop glow */}
             <div className="absolute -right-20 -top-20 w-80 h-80 bg-cyan-500/15 rounded-full blur-[100px] pointer-events-none" />
             <div className="absolute -left-20 -bottom-20 w-80 h-80 bg-indigo-500/15 rounded-full blur-[100px] pointer-events-none" />
@@ -135,7 +153,7 @@ export default function AboutSection() {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
 
       </div>
