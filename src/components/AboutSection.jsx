@@ -5,8 +5,8 @@ import { CheckCircle2, ShieldCheck, Zap } from "lucide-react";
 
 export default function AboutSection() {
   return (
-    <section id="about" className="py-24 lg:py-32 bg-[#F8FAFC]">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+    <section id="about" className="py-24 lg:py-36 bg-[#F8FAFC]">
+      <div className="max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-16 xl:px-20">
         
         {/* Section Header: Wilbur Split Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start mb-16 lg:mb-20">
@@ -18,22 +18,22 @@ export default function AboutSection() {
               <span>ABOUT US</span>
             </div>
 
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight uppercase leading-[1.12] text-neutral-950">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold tracking-tight uppercase leading-[1.1] text-neutral-950">
               BUILDING SCALABLE DIGITAL SOLUTIONS FOR FUTURE-FOCUSED ENTERPRISES
             </h2>
           </div>
 
           {/* Right Column: Narrative statement */}
           <div className="lg:col-span-5 flex flex-col justify-between pt-2 lg:pt-8 space-y-6">
-            <p className="text-sm sm:text-base font-medium tracking-wide uppercase leading-relaxed text-neutral-600">
+            <p className="text-sm sm:text-base lg:text-lg font-medium tracking-wide uppercase leading-relaxed text-neutral-600">
               WE BLEND ENGINEERING PRECISION, ARTIFICIAL INTELLIGENCE, AND
               CLOUD ARCHITECTURE TO BUILD DIGITAL PLATFORMS THAT DRIVE MEASURABLE
               EFFICIENCY AND COMPOUNDING BUSINESS MOMENTUM.
             </p>
 
-            <div className="grid grid-cols-2 gap-6 pt-4 border-t border-gray-200">
+            <div className="grid grid-cols-2 gap-8 pt-6 border-t border-gray-200">
               <div>
-                <span className="text-2xl lg:text-3xl font-bold text-neutral-900 block">
+                <span className="text-3xl lg:text-4xl font-bold text-neutral-900 block">
                   12+ Yrs
                 </span>
                 <span className="text-xs text-neutral-500 uppercase tracking-wider font-semibold">
@@ -41,7 +41,7 @@ export default function AboutSection() {
                 </span>
               </div>
               <div>
-                <span className="text-2xl lg:text-3xl font-bold text-neutral-900 block">
+                <span className="text-3xl lg:text-4xl font-bold text-neutral-900 block">
                   45+
                 </span>
                 <span className="text-xs text-neutral-500 uppercase tracking-wider font-semibold">
@@ -53,10 +53,10 @@ export default function AboutSection() {
         </div>
 
         {/* Visual Cards Row: Faithful to Wilbur's side-by-side photo cards */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-stretch">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-10 items-stretch">
           
           {/* Left Card: Engineering Studio */}
-          <div className="md:col-span-6 lg:col-span-5 relative rounded-3xl overflow-hidden bg-neutral-900 min-h-[380px] lg:min-h-[460px] group shadow-xl">
+          <div className="md:col-span-6 lg:col-span-5 relative rounded-3xl overflow-hidden bg-neutral-900 min-h-[420px] lg:min-h-[520px] group shadow-xl">
             <Image
               src="/assets/engineers-team.jpg"
               alt="Valence Software Engineering Team"
@@ -71,7 +71,7 @@ export default function AboutSection() {
               <span className="inline-block px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-xs font-semibold tracking-wider uppercase">
                 Core Capability
               </span>
-              <h3 className="text-xl sm:text-2xl font-bold tracking-tight">
+              <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold tracking-tight">
                 Trusted Enterprise Engineering
               </h3>
               <p className="text-sm text-neutral-300 font-light leading-relaxed">
@@ -82,7 +82,7 @@ export default function AboutSection() {
           </div>
 
           {/* Right Card: Impact & Architecture Card */}
-          <div className="md:col-span-6 lg:col-span-7 flex flex-col justify-between rounded-3xl p-8 sm:p-10 lg:p-12 bg-neutral-950 text-white relative overflow-hidden shadow-xl">
+          <div className="md:col-span-6 lg:col-span-7 flex flex-col justify-between rounded-3xl p-8 sm:p-10 lg:p-14 bg-neutral-950 text-white relative overflow-hidden shadow-xl">
             {/* Ambient backdrop glow */}
             <div className="absolute -right-20 -top-20 w-80 h-80 bg-cyan-500/15 rounded-full blur-[100px] pointer-events-none" />
             <div className="absolute -left-20 -bottom-20 w-80 h-80 bg-indigo-500/15 rounded-full blur-[100px] pointer-events-none" />
@@ -91,10 +91,10 @@ export default function AboutSection() {
               <span className="text-xs font-bold tracking-[0.2em] text-cyan-400 uppercase">
                 OUR COMMITMENT
               </span>
-              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold uppercase tracking-tight leading-snug">
+              <h3 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-extrabold uppercase tracking-tight leading-snug">
                 Creating Long-Term Performance & Zero Technical Debt
               </h3>
-              <p className="text-neutral-400 text-sm sm:text-base leading-relaxed max-w-xl">
+              <p className="text-neutral-400 text-sm sm:text-base lg:text-lg leading-relaxed max-w-2xl">
                 We reject brittle band-aids. Every repository, pipeline, and container
                 cluster we architect is engineered to handle 10x traffic expansion,
                 comprehensive test suites, and seamless developer onboarding.
@@ -102,11 +102,11 @@ export default function AboutSection() {
             </div>
 
             {/* Checklist of Engineering Guarantees */}
-            <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 gap-4 pt-8 mt-8 border-t border-neutral-800">
+            <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 gap-5 pt-8 mt-8 border-t border-neutral-800">
               <div className="flex items-start gap-3">
                 <CheckCircle2 className="w-5 h-5 text-cyan-400 shrink-0 mt-0.5" />
                 <div>
-                  <span className="text-sm font-semibold block text-white">Full IP Ownership</span>
+                  <span className="text-sm sm:text-base font-semibold block text-white">Full IP Ownership</span>
                   <span className="text-xs text-neutral-400">100% of code, repos, and cloud keys belong to you.</span>
                 </div>
               </div>
@@ -114,7 +114,7 @@ export default function AboutSection() {
               <div className="flex items-start gap-3">
                 <ShieldCheck className="w-5 h-5 text-cyan-400 shrink-0 mt-0.5" />
                 <div>
-                  <span className="text-sm font-semibold block text-white">Zero-Trust Security</span>
+                  <span className="text-sm sm:text-base font-semibold block text-white">Zero-Trust Security</span>
                   <span className="text-xs text-neutral-400">SOC2, HIPAA, and GDPR compliant practices built-in.</span>
                 </div>
               </div>
@@ -122,7 +122,7 @@ export default function AboutSection() {
               <div className="flex items-start gap-3">
                 <Zap className="w-5 h-5 text-cyan-400 shrink-0 mt-0.5" />
                 <div>
-                  <span className="text-sm font-semibold block text-white">Predictable Sprints</span>
+                  <span className="text-sm sm:text-base font-semibold block text-white">Predictable Sprints</span>
                   <span className="text-xs text-neutral-400">Weekly demonstrable releases with clear KPI tracking.</span>
                 </div>
               </div>
@@ -130,7 +130,7 @@ export default function AboutSection() {
               <div className="flex items-start gap-3">
                 <CheckCircle2 className="w-5 h-5 text-cyan-400 shrink-0 mt-0.5" />
                 <div>
-                  <span className="text-sm font-semibold block text-white">Continuous Uptime</span>
+                  <span className="text-sm sm:text-base font-semibold block text-white">Continuous Uptime</span>
                   <span className="text-xs text-neutral-400">99.9% availability SLAs with automated self-healing.</span>
                 </div>
               </div>
