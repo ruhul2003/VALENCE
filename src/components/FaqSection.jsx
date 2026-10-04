@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Plus, Minus } from "lucide-react";
 
 export default function FaqSection() {
@@ -35,27 +36,37 @@ export default function FaqSection() {
   ];
 
   return (
-    <section id="faq" className="py-24 lg:py-32 bg-[#F8FAFC] border-t border-gray-200">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+    <section id="faq" className="py-24 lg:py-36 bg-[#F8FAFC] border-t border-gray-200">
+      <div className="max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-16 xl:px-20">
         
         {/* Section Header */}
-        <div className="space-y-4 mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="space-y-4 mb-16 lg:mb-20"
+        >
           <div className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.2em] text-neutral-500 uppercase">
             <span className="w-1.5 h-1.5 rounded-full bg-black" />
             <span>FAQ</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold uppercase tracking-tight text-neutral-950">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold uppercase tracking-tight text-neutral-950">
             FREQUENTLY ASKED QUESTIONS.
           </h2>
-        </div>
+        </motion.div>
 
         {/* FAQ Accordion List */}
-        <div className="max-w-4xl space-y-4">
+        <div className="max-w-5xl space-y-4">
           {faqs.map((faq, idx) => {
             const isOpen = openIndex === idx;
             return (
-              <div
+              <motion.div
                 key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.08 }}
                 className={`rounded-2xl transition-all duration-300 border ${
                   isOpen
                     ? "bg-white border-black/20 shadow-md"
@@ -64,26 +75,38 @@ export default function FaqSection() {
               >
                 <button
                   onClick={() => setOpenIndex(isOpen ? -1 : idx)}
-                  className="w-full py-6 px-6 sm:px-8 flex items-center justify-between text-left group cursor-pointer"
+                  className="w-full py-6 sm:py-7 px-6 sm:px-8 flex items-center justify-between text-left group cursor-pointer"
                 >
-                  <span className="text-base sm:text-lg font-bold text-neutral-950 pr-4">
+                  <span className="text-base sm:text-lg lg:text-xl font-bold text-neutral-950 pr-4">
                     {faq.question}
                   </span>
-                  <div
-                    className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-colors ${
+                  <motion.div
+                    animate={{ rotate: isOpen ? 180 : 0 }}
+                    transition={{ duration: 0.25 }}
+                    className={`w-9 h-9 rounded-full flex items-center justify-center shrink-0 transition-colors ${
                       isOpen ? "bg-black text-white" : "bg-gray-100 text-neutral-700 group-hover:bg-gray-200"
                     }`}
                   >
                     {isOpen ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
-                  </div>
+                  </motion.div>
                 </button>
 
-                {isOpen && (
-                  <div className="px-6 sm:px-8 pb-6 text-sm sm:text-base text-neutral-600 leading-relaxed animate-in fade-in duration-200">
-                    <p>{faq.answer}</p>
-                  </div>
-                )}
-              </div>
+                <AnimatePresence initial={false}>
+                  {isOpen && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                      className="overflow-hidden"
+                    >
+                      <div className="px-6 sm:px-8 pb-7 text-sm sm:text-base text-neutral-600 leading-relaxed font-normal">
+                        <p>{faq.answer}</p>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
             );
           })}
         </div>
