@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 export default function AiExcellenceSection() {
   return (
@@ -11,24 +12,43 @@ export default function AiExcellenceSection() {
       <div className="max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-16 xl:px-20 relative z-10">
         
         {/* Subtle Section Tag */}
-        <div className="flex justify-center mb-6">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="flex justify-center mb-6"
+        >
           <div className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.2em] text-neutral-500 uppercase">
             <span className="w-1.5 h-1.5 rounded-full bg-cyan-600" />
             <span>AI COGNITIVE ARCHITECTURE</span>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="text-center max-w-4xl mx-auto mb-16 lg:mb-24">
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center max-w-4xl mx-auto mb-16 lg:mb-24"
+        >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold uppercase tracking-tight text-neutral-950">
             AUTONOMOUS COGNITION AT ENTERPRISE SCALE
           </h2>
-        </div>
+        </motion.div>
 
         {/* 4-Corner Layout with Center Glowing Neural Brain (Replicating Wilbur's exact design) */}
         <div className="relative min-h-[580px] lg:min-h-[720px] xl:min-h-[760px] flex items-center justify-center">
           
           {/* Top-Left Node */}
-          <div className="absolute top-0 left-0 max-w-[320px] xl:max-w-[360px] text-left space-y-2">
+          <motion.div
+            initial={{ opacity: 0, x: -30, y: -20 }}
+            whileInView={{ opacity: 1, x: 0, y: 0 }}
+            viewport={{ once: true }}
+            whileHover={{ scale: 1.04 }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            className="absolute top-0 left-0 max-w-[320px] xl:max-w-[360px] text-left space-y-2 cursor-pointer"
+          >
             <span className="text-xs font-bold tracking-[0.15em] text-cyan-700 uppercase block">
               MACHINE LEARNING
             </span>
@@ -38,10 +58,17 @@ export default function AiExcellenceSection() {
             <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed pt-1 font-normal">
               Neural models that continuously calibrate based on telemetry, user intent, and operational outcomes.
             </p>
-          </div>
+          </motion.div>
 
           {/* Top-Right Node */}
-          <div className="absolute top-0 right-0 max-w-[320px] xl:max-w-[360px] text-right space-y-2">
+          <motion.div
+            initial={{ opacity: 0, x: 30, y: -20 }}
+            whileInView={{ opacity: 1, x: 0, y: 0 }}
+            viewport={{ once: true }}
+            whileHover={{ scale: 1.04 }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            className="absolute top-0 right-0 max-w-[320px] xl:max-w-[360px] text-right space-y-2 cursor-pointer"
+          >
             <span className="text-xs font-bold tracking-[0.15em] text-cyan-700 uppercase block">
               ADVANTAGE
             </span>
@@ -51,10 +78,17 @@ export default function AiExcellenceSection() {
             <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed pt-1 font-normal">
               Sub-15 millisecond private inference and zero data-leakage enterprise agent pipelines.
             </p>
-          </div>
+          </motion.div>
 
           {/* Bottom-Left Node */}
-          <div className="absolute bottom-0 left-0 max-w-[320px] xl:max-w-[360px] text-left space-y-2">
+          <motion.div
+            initial={{ opacity: 0, x: -30, y: 20 }}
+            whileInView={{ opacity: 1, x: 0, y: 0 }}
+            viewport={{ once: true }}
+            whileHover={{ scale: 1.04 }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            className="absolute bottom-0 left-0 max-w-[320px] xl:max-w-[360px] text-left space-y-2 cursor-pointer"
+          >
             <span className="text-xs font-bold tracking-[0.15em] text-cyan-700 uppercase block">
               AI EVOLVES
             </span>
@@ -64,10 +98,17 @@ export default function AiExcellenceSection() {
             <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed pt-1 font-normal">
               Decoupled model routers allowing you to hot-swap between Claude, OpenAI, and open-weight models.
             </p>
-          </div>
+          </motion.div>
 
           {/* Bottom-Right Node */}
-          <div className="absolute bottom-0 right-0 max-w-[320px] xl:max-w-[360px] text-right space-y-2">
+          <motion.div
+            initial={{ opacity: 0, x: 30, y: 20 }}
+            whileInView={{ opacity: 1, x: 0, y: 0 }}
+            viewport={{ once: true }}
+            whileHover={{ scale: 1.04 }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            className="absolute bottom-0 right-0 max-w-[320px] xl:max-w-[360px] text-right space-y-2 cursor-pointer"
+          >
             <span className="text-xs font-bold tracking-[0.15em] text-cyan-700 uppercase block">
               AI CUSTOMIZES
             </span>
@@ -77,12 +118,27 @@ export default function AiExcellenceSection() {
             <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed pt-1 font-normal">
               Context-aware embeddings tailored to your exact domain datasets, workflows, and security tiers.
             </p>
-          </div>
+          </motion.div>
 
-          {/* Center Glowing 3D Brain Visual */}
-          <div className="relative w-[320px] h-[320px] sm:w-[420px] sm:h-[420px] lg:w-[500px] lg:h-[500px] xl:w-[540px] xl:h-[540px] flex items-center justify-center">
+          {/* Center Glowing 3D Brain Visual with Floating Framer Motion */}
+          <motion.div
+            animate={{
+              y: [0, -16, 0],
+              rotate: [0, 1.2, 0, -1.2, 0],
+            }}
+            transition={{
+              repeat: Infinity,
+              duration: 7,
+              ease: "easeInOut",
+            }}
+            className="relative w-[320px] h-[320px] sm:w-[420px] sm:h-[420px] lg:w-[500px] lg:h-[500px] xl:w-[540px] xl:h-[540px] flex items-center justify-center cursor-pointer"
+          >
             {/* Glowing Pulse Rings */}
-            <div className="absolute inset-0 rounded-full bg-cyan-400/25 blur-3xl animate-pulse-subtle pointer-events-none" />
+            <motion.div
+              animate={{ scale: [1, 1.08, 1], opacity: [0.25, 0.45, 0.25] }}
+              transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
+              className="absolute inset-0 rounded-full bg-cyan-400/30 blur-3xl pointer-events-none"
+            />
             <div className="absolute inset-8 rounded-full bg-blue-500/20 blur-2xl pointer-events-none" />
 
             {/* Neural Brain Image */}
@@ -95,7 +151,7 @@ export default function AiExcellenceSection() {
                 className="object-contain object-center drop-shadow-[0_25px_60px_rgba(6,182,212,0.4)]"
               />
             </div>
-          </div>
+          </motion.div>
 
         </div>
 
