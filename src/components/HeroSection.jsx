@@ -27,8 +27,8 @@ export default function HeroSection({ onOpenContact }) {
       </div>
 
       {/* Main Content Area */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full my-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+      <div className="relative z-10 max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-16 xl:px-20 w-full my-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-12 xl:gap-16 items-center">
           
           {/* Left Column: Headlines & CTAs */}
           <div className="lg:col-span-8 flex flex-col items-start space-y-6 lg:space-y-8">
@@ -41,12 +41,12 @@ export default function HeroSection({ onOpenContact }) {
             </div>
 
             {/* Main Headline */}
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[68px] font-extrabold text-white tracking-tight uppercase leading-[1.08] max-w-3xl">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[72px] xl:text-[82px] font-extrabold text-white tracking-tight uppercase leading-[1.05] max-w-5xl">
               EMPOWERING YOUR ENTERPRISE WITH SMART SOFTWARE SOLUTIONS
             </h1>
 
             {/* Subtitle */}
-            <p className="text-base sm:text-lg md:text-xl text-neutral-300 font-normal leading-relaxed max-w-2xl">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-neutral-300 font-normal leading-relaxed max-w-3xl">
               We help businesses reduce costs, scale faster, and stay secure with
               end-to-end cloud microservices, AI-driven platforms, and enterprise
               technology engineering.
@@ -56,7 +56,7 @@ export default function HeroSection({ onOpenContact }) {
             <div className="flex items-center gap-3 pt-2">
               <button
                 onClick={onOpenContact}
-                className="group h-[52px] px-8 rounded-full bg-white text-black font-semibold text-[15px] hover:bg-neutral-100 transition-all duration-300 shadow-xl hover:shadow-2xl flex items-center gap-2 cursor-pointer"
+                className="group h-[54px] px-8 rounded-full bg-white text-black font-semibold text-[15px] hover:bg-neutral-100 transition-all duration-300 shadow-xl hover:shadow-2xl flex items-center gap-2 cursor-pointer"
               >
                 <span>Book Free Consultation</span>
               </button>
@@ -64,7 +64,7 @@ export default function HeroSection({ onOpenContact }) {
               <button
                 onClick={onOpenContact}
                 aria-label="Direct Consultation Link"
-                className="group w-[52px] h-[52px] rounded-full bg-white text-black hover:bg-neutral-100 flex items-center justify-center transition-all duration-300 shadow-xl hover:shadow-2xl cursor-pointer"
+                className="group w-[54px] h-[54px] rounded-full bg-white text-black hover:bg-neutral-100 flex items-center justify-center transition-all duration-300 shadow-xl hover:shadow-2xl cursor-pointer"
               >
                 <ArrowUpRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </button>
@@ -73,14 +73,14 @@ export default function HeroSection({ onOpenContact }) {
 
           {/* Right Column: Hero Feature Glass Card (Matching Wilbur) */}
           <div className="lg:col-span-4 flex justify-center lg:justify-end">
-            <div className="w-full max-w-[380px] rounded-3xl p-4 sm:p-5 bg-white/10 backdrop-blur-2xl border border-white/25 shadow-2xl transition-all duration-500 hover:border-white/40 hover:bg-white/15 animate-float-slow">
+            <div className="w-full max-w-[420px] xl:max-w-[460px] rounded-3xl p-5 sm:p-6 bg-white/10 backdrop-blur-2xl border border-white/25 shadow-2xl transition-all duration-500 hover:border-white/40 hover:bg-white/15 animate-float-slow">
               {/* Inner Image Container */}
               <div className="relative aspect-[4/3] w-full rounded-2xl overflow-hidden mb-4 border border-white/15 shadow-inner">
                 <Image
                   src="/assets/hero-ai-card.jpg"
                   alt="AI Powered Solutions Dashboard"
                   fill
-                  sizes="(max-width: 768px) 100vw, 360px"
+                  sizes="(max-width: 768px) 100vw, 460px"
                   className="object-cover object-center transition-transform duration-700 hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none" />
@@ -91,7 +91,7 @@ export default function HeroSection({ onOpenContact }) {
                 <span className="text-[12px] font-bold tracking-wider text-cyan-300 uppercase">
                   AI-POWERED ARCHITECTURE
                 </span>
-                <p className="text-[15px] font-semibold text-white tracking-wide">
+                <p className="text-[16px] font-semibold text-white tracking-wide">
                   Smarter engineering for future-ready brands.
                 </p>
               </div>
@@ -101,8 +101,8 @@ export default function HeroSection({ onOpenContact }) {
       </div>
 
       {/* Bottom Metrics Bar (Matching Wilbur Bottom Left) */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full mt-12 lg:mt-16">
-        <div className="flex flex-wrap items-center gap-6 sm:gap-12 text-white">
+      <div className="relative z-10 max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-16 xl:px-20 w-full mt-12 lg:mt-16">
+        <div className="flex flex-wrap items-center gap-8 sm:gap-14 lg:gap-20 text-white">
           {/* Stat 1 */}
           <div className="flex items-baseline gap-3">
             <span className="text-4xl sm:text-5xl lg:text-6xl font-light tracking-tight text-white">
