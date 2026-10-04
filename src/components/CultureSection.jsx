@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 export default function CultureSection() {
   const photos = [
@@ -22,24 +23,35 @@ export default function CultureSection() {
   ];
 
   return (
-    <section className="py-20 bg-white border-t border-gray-100">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-        <div className="space-y-4 mb-12">
+    <section className="py-24 lg:py-36 bg-white border-t border-gray-100">
+      <div className="max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-16 xl:px-20">
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="space-y-4 mb-16 lg:mb-20"
+        >
           <div className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.2em] text-neutral-500 uppercase">
             <span className="w-1.5 h-1.5 rounded-full bg-black" />
             <span>CULTURE & LIFE AT VALENCE</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold uppercase tracking-tight text-neutral-950">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold uppercase tracking-tight text-neutral-950">
             ENGINEERING CULTURE WITHOUT BORDERS.
           </h2>
-        </div>
+        </motion.div>
 
         {/* 3-Photo Horizontal Row (Matching Wilbur's 3-card photo strip) */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
           {photos.map((item, index) => (
-            <div
+            <motion.div
               key={index}
-              className="group relative aspect-[4/3] rounded-3xl overflow-hidden bg-neutral-900 shadow-md hover:shadow-xl transition-all duration-500"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: index * 0.15 }}
+              whileHover={{ y: -6 }}
+              className="group relative aspect-[16/11] lg:aspect-[16/10] rounded-3xl overflow-hidden bg-neutral-900 shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer"
             >
               <Image
                 src={item.image}
@@ -48,17 +60,17 @@ export default function CultureSection() {
                 sizes="(max-width: 768px) 100vw, 33vw"
                 className="object-cover object-center transition-transform duration-700 group-hover:scale-105 opacity-85 group-hover:opacity-100"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent pointer-events-none" />
               
-              <div className="absolute bottom-5 left-5 right-5 text-white">
-                <span className="text-[11px] font-semibold tracking-wider uppercase text-cyan-300 block mb-0.5">
+              <div className="absolute bottom-6 left-6 right-6 text-white">
+                <span className="text-xs font-semibold tracking-wider uppercase text-cyan-300 block mb-1">
                   {item.location}
                 </span>
-                <h3 className="text-base font-bold tracking-tight">
+                <h3 className="text-lg sm:text-xl font-bold tracking-tight">
                   {item.title}
                 </h3>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
