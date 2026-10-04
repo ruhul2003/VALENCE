@@ -70,9 +70,9 @@ export default function ServicesAccordion({ onOpenContact }) {
   ];
 
   return (
-    <section id="services" className="py-24 lg:py-32 bg-[#F8FAFC] border-t border-gray-200">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+    <section id="services" className="py-24 lg:py-36 bg-[#F8FAFC] border-t border-gray-200">
+      <div className="max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-16 xl:px-20">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 xl:gap-20 items-start">
           
           {/* Left Column: Fixed / Sticky Title */}
           <div className="lg:col-span-4 lg:sticky lg:top-32 space-y-6">
@@ -81,11 +81,11 @@ export default function ServicesAccordion({ onOpenContact }) {
               <span>SERVICES</span>
             </div>
 
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold uppercase tracking-tight text-neutral-950 leading-[1.1]">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold uppercase tracking-tight text-neutral-950 leading-[1.08]">
               ENGINEERED FOR IMPACT
             </h2>
 
-            <p className="text-sm sm:text-base text-neutral-600 leading-relaxed font-normal">
+            <p className="text-sm sm:text-base lg:text-lg text-neutral-600 leading-relaxed font-normal">
               We partner with visionary founders and enterprise leaders to build
               bulletproof software products. Every solution is delivered with
               exhaustive code reviews, test suites, and transparent sprint velocity.
@@ -94,7 +94,7 @@ export default function ServicesAccordion({ onOpenContact }) {
             <div className="pt-4">
               <button
                 onClick={onOpenContact}
-                className="group rounded-full bg-black text-white hover:bg-neutral-800 px-6 py-3.5 text-sm font-semibold flex items-center gap-3 transition-all duration-300 shadow-md cursor-pointer"
+                className="group rounded-full bg-black text-white hover:bg-neutral-800 px-7 py-4 text-sm font-semibold flex items-center gap-3 transition-all duration-300 shadow-md cursor-pointer"
               >
                 <span>Schedule Discovery Call</span>
                 <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -114,12 +114,12 @@ export default function ServicesAccordion({ onOpenContact }) {
                   {/* Header Row */}
                   <button
                     onClick={() => setOpenIndex(isOpen ? -1 : index)}
-                    className="w-full py-7 flex items-center justify-between text-left group cursor-pointer"
+                    className="w-full py-7 sm:py-8 flex items-center justify-between text-left group cursor-pointer"
                   >
-                    <h3 className="text-lg sm:text-xl lg:text-2xl font-bold uppercase tracking-tight text-neutral-950 pr-6 group-hover:text-neutral-700 transition-colors">
+                    <h3 className="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-bold uppercase tracking-tight text-neutral-950 pr-6 group-hover:text-neutral-700 transition-colors">
                       {cap.title}
                     </h3>
-                    <div className="w-10 h-10 rounded-full border border-neutral-300 group-hover:border-black flex items-center justify-center shrink-0 transition-colors">
+                    <div className="w-11 h-11 rounded-full border border-neutral-300 group-hover:border-black flex items-center justify-center shrink-0 transition-colors">
                       {isOpen ? (
                         <ArrowUpRight className="w-5 h-5 text-black" />
                       ) : (
@@ -131,16 +131,16 @@ export default function ServicesAccordion({ onOpenContact }) {
                   {/* Expandable Body */}
                   {isOpen && (
                     <div className="pb-8 pt-2 space-y-6 animate-in fade-in slide-in-from-top-2 duration-300">
-                      <p className="text-base text-neutral-700 leading-relaxed max-w-2xl">
+                      <p className="text-base sm:text-lg text-neutral-700 leading-relaxed max-w-4xl">
                         {cap.description}
                       </p>
 
                       {/* Tech Pills */}
-                      <div className="flex flex-wrap gap-2 pt-1">
+                      <div className="flex flex-wrap gap-2.5 pt-1">
                         {cap.techs.map((t) => (
                           <span
                             key={t}
-                            className="px-3 py-1 rounded-full text-xs font-semibold bg-white border border-gray-300 text-neutral-800 shadow-xs"
+                            className="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white border border-gray-300 text-neutral-800 shadow-xs"
                           >
                             {t}
                           </span>
@@ -148,13 +148,13 @@ export default function ServicesAccordion({ onOpenContact }) {
                       </div>
 
                       {/* Visual Preview Box (Replicating Wilbur's expanded card visual) */}
-                      <div className="rounded-2xl p-6 bg-neutral-900 text-white border border-neutral-800 shadow-lg relative overflow-hidden">
+                      <div className="rounded-2xl p-6 sm:p-8 bg-neutral-900 text-white border border-neutral-800 shadow-lg relative overflow-hidden">
                         <div className="flex flex-wrap items-center justify-between gap-4 mb-4">
                           <span className="text-xs font-bold uppercase tracking-wider text-cyan-400 bg-cyan-950/60 px-3 py-1 rounded-full border border-cyan-800/40">
                             {cap.preview.badge}
                           </span>
                           <div className="flex items-baseline gap-2">
-                            <span className="text-2xl font-extrabold text-white">
+                            <span className="text-3xl font-extrabold text-white">
                               {cap.preview.metric}
                             </span>
                             <span className="text-xs text-neutral-400 uppercase tracking-wide">
@@ -162,7 +162,7 @@ export default function ServicesAccordion({ onOpenContact }) {
                             </span>
                           </div>
                         </div>
-                        <p className="text-sm text-neutral-300 font-light">
+                        <p className="text-sm sm:text-base text-neutral-300 font-light leading-relaxed">
                           {cap.preview.highlight}
                         </p>
                       </div>
