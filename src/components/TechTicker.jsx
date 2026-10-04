@@ -1,5 +1,7 @@
 "use client";
 
+import { motion } from "framer-motion";
+
 export default function TechTicker() {
   const technologies = [
     { name: "Next.js 16", tag: "App Router" },
@@ -18,30 +20,38 @@ export default function TechTicker() {
   ];
 
   return (
-    <section className="border-y border-black/5 bg-[#F8FAFC] py-6 overflow-hidden select-none">
+    <motion.section
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6 }}
+      className="border-y border-black/5 bg-[#F8FAFC] py-6 sm:py-8 overflow-hidden select-none"
+    >
       <div className="relative w-full overflow-hidden">
         {/* Soft edge gradients */}
-        <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-[#F8FAFC] to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[#F8FAFC] to-transparent z-10 pointer-events-none" />
+        <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-[#F8FAFC] to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-[#F8FAFC] to-transparent z-10 pointer-events-none" />
 
-        <div className="animate-marquee flex items-center gap-12 whitespace-nowrap">
-          {/* Double list for smooth infinite scroll */}
+        <div className="animate-marquee flex items-center gap-10 whitespace-nowrap">
+          {/* Repeated list for smooth infinite scroll */}
           {[...technologies, ...technologies, ...technologies].map((tech, idx) => (
-            <div
+            <motion.div
               key={idx}
-              className="inline-flex items-center gap-3 px-4 py-2 rounded-xl bg-white border border-gray-200/70 shadow-xs hover:border-black/30 transition-colors"
+              whileHover={{ scale: 1.06, y: -2 }}
+              transition={{ type: "spring", stiffness: 400, damping: 20 }}
+              className="inline-flex items-center gap-3 px-4 py-2.5 rounded-xl bg-white border border-gray-200/80 shadow-xs hover:border-black/30 hover:shadow-md transition-colors cursor-pointer"
             >
-              <span className="w-2 h-2 rounded-full bg-black/60" />
+              <span className="w-2 h-2 rounded-full bg-cyan-500 animate-pulse" />
               <span className="text-sm font-bold tracking-tight text-neutral-900 uppercase">
                 {tech.name}
               </span>
               <span className="text-[11px] font-medium text-neutral-400 border-l border-gray-200 pl-2">
                 {tech.tag}
               </span>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }
