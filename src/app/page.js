@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import TechTicker from "@/components/TechTicker";
@@ -76,10 +77,12 @@ export default function Home() {
 
       {/* Bottom-Right Floating Brand Action Button (Matching Wilbur Ltd circular emblem) */}
       <div className="fixed bottom-6 right-6 z-40">
-        <button
+        <motion.button
+          whileHover={{ scale: 1.1, rotate: 2 }}
+          whileTap={{ scale: 0.92 }}
           onClick={handleOpenModal}
           aria-label="Open Quick Consultation"
-          className="group relative w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-white text-black shadow-2xl border border-gray-200/80 hover:border-black/30 flex items-center justify-center transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer"
+          className="group relative w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-white text-black shadow-2xl border border-gray-200/80 hover:border-black/30 flex items-center justify-center transition-shadow duration-300 cursor-pointer"
         >
           {/* Subtle pulse ring */}
           <span className="absolute -inset-1 rounded-full bg-black/5 animate-ping pointer-events-none" />
@@ -89,7 +92,7 @@ export default function Home() {
               ///
             </span>
           </div>
-        </button>
+        </motion.button>
       </div>
 
       {/* Interactive Quick Discovery Modal */}
