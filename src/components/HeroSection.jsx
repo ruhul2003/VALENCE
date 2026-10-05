@@ -23,12 +23,30 @@ export default function HeroSection({ onOpenContact }) {
         {/* Soft Vignette & Atmospheric Gradients */}
         <div className="absolute inset-0 bg-gradient-to-t from-[#0A0D14] via-transparent to-[#0A0D14]/60" />
         <div className="absolute inset-0 bg-gradient-to-r from-[#0A0D14]/90 via-[#0A0D14]/40 to-[#0A0D14]/80" />
-        <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-[140px] pointer-events-none" />
-        <div className="absolute bottom-1/3 right-1/4 w-[450px] h-[450px] bg-indigo-500/15 rounded-full blur-[150px] pointer-events-none" />
+        <motion.div
+          animate={{
+            scale: [1, 1.15, 1],
+            opacity: [0.12, 0.22, 0.12],
+            x: [0, 25, 0],
+            y: [0, -20, 0],
+          }}
+          transition={{ repeat: Infinity, duration: 9, ease: "easeInOut" }}
+          className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-cyan-500/20 rounded-full blur-[140px] pointer-events-none"
+        />
+        <motion.div
+          animate={{
+            scale: [1, 1.2, 1],
+            opacity: [0.15, 0.25, 0.15],
+            x: [0, -25, 0],
+            y: [0, 20, 0],
+          }}
+          transition={{ repeat: Infinity, duration: 11, ease: "easeInOut" }}
+          className="absolute bottom-1/3 right-1/4 w-[450px] h-[450px] bg-indigo-500/20 rounded-full blur-[150px] pointer-events-none"
+        />
       </div>
 
       {/* Main Content Area */}
-      <div className="relative z-10 max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-16 xl:px-20 w-full my-auto">
+      <div className="relative z-10 w-[95%] mx-auto px-4 sm:px-6 lg:px-8 my-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-12 xl:gap-16 items-center">
           
           {/* Left Column: Headlines & CTAs */}
@@ -37,8 +55,9 @@ export default function HeroSection({ onOpenContact }) {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
+              whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white/90 shadow-lg text-[13px] sm:text-[14px] font-medium tracking-wide"
+              className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white/90 shadow-lg text-[13px] sm:text-[14px] font-medium tracking-wide cursor-default"
             >
               <span className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center text-white">
                 <Code2 className="w-3.5 h-3.5" />
@@ -51,7 +70,7 @@ export default function HeroSection({ onOpenContact }) {
               initial={{ opacity: 0, y: 35 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-[72px] xl:text-[82px] font-extrabold text-white tracking-tight uppercase leading-[1.05] max-w-5xl"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-[76px] xl:text-[88px] font-extrabold text-white tracking-tight uppercase leading-[1.04] max-w-6xl xl:max-w-7xl"
             >
               EMPOWERING YOUR ENTERPRISE WITH SMART SOFTWARE SOLUTIONS
             </motion.h1>
@@ -61,7 +80,7 @@ export default function HeroSection({ onOpenContact }) {
               initial={{ opacity: 0, y: 25 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
-              className="text-base sm:text-lg md:text-xl lg:text-2xl text-neutral-300 font-normal leading-relaxed max-w-3xl"
+              className="text-base sm:text-lg md:text-xl lg:text-2xl text-neutral-300 font-normal leading-relaxed max-w-4xl"
             >
               We help businesses reduce costs, scale faster, and stay secure with
               end-to-end cloud microservices, AI-driven platforms, and enterprise
@@ -76,20 +95,22 @@ export default function HeroSection({ onOpenContact }) {
               className="flex items-center gap-3 pt-2"
             >
               <motion.button
-                whileHover={{ scale: 1.04 }}
+                whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.96 }}
+                transition={{ type: "spring", stiffness: 400, damping: 20 }}
                 onClick={onOpenContact}
-                className="group h-[54px] px-8 rounded-full bg-white text-black font-semibold text-[15px] hover:bg-neutral-100 transition-all duration-300 shadow-xl hover:shadow-2xl flex items-center gap-2 cursor-pointer"
+                className="group relative h-[54px] px-8 rounded-full bg-white text-black font-semibold text-[15px] hover:bg-neutral-100 transition-colors shadow-xl hover:shadow-cyan-500/20 flex items-center gap-2 cursor-pointer"
               >
                 <span>Book Free Consultation</span>
               </motion.button>
 
               <motion.button
-                whileHover={{ scale: 1.08 }}
+                whileHover={{ scale: 1.1, rotate: 5 }}
                 whileTap={{ scale: 0.92 }}
+                transition={{ type: "spring", stiffness: 400, damping: 15 }}
                 onClick={onOpenContact}
                 aria-label="Direct Consultation Link"
-                className="group w-[54px] h-[54px] rounded-full bg-white text-black hover:bg-neutral-100 flex items-center justify-center transition-all duration-300 shadow-xl hover:shadow-2xl cursor-pointer"
+                className="group w-[54px] h-[54px] rounded-full bg-white text-black hover:bg-neutral-100 flex items-center justify-center transition-colors shadow-xl hover:shadow-cyan-500/20 cursor-pointer"
               >
                 <ArrowUpRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </motion.button>
@@ -143,7 +164,7 @@ export default function HeroSection({ onOpenContact }) {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, delay: 0.65, ease: [0.16, 1, 0.3, 1] }}
-        className="relative z-10 max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-16 xl:px-20 w-full mt-12 lg:mt-16"
+        className="relative z-10 w-[95%] mx-auto px-4 sm:px-6 lg:px-8 mt-12 lg:mt-16"
       >
         <div className="flex flex-wrap items-center gap-8 sm:gap-14 lg:gap-20 text-white">
           {/* Stat 1 */}
