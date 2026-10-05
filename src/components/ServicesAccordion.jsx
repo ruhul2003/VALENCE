@@ -72,7 +72,7 @@ export default function ServicesAccordion({ onOpenContact }) {
 
   return (
     <section id="services" className="py-24 lg:py-36 bg-[#F8FAFC] border-t border-gray-200">
-      <div className="max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-16 xl:px-20">
+      <div className="w-[95%] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 xl:gap-20 items-start">
           
           {/* Left Column: Fixed / Sticky Title */}
@@ -123,14 +123,22 @@ export default function ServicesAccordion({ onOpenContact }) {
                   {/* Header Row */}
                   <button
                     onClick={() => setOpenIndex(isOpen ? -1 : index)}
-                    className="w-full py-7 sm:py-8 flex items-center justify-between text-left group cursor-pointer"
+                    className="w-full py-7 sm:py-8 flex items-center justify-between text-left group cursor-pointer relative"
                   >
-                    <h3 className="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-bold uppercase tracking-tight text-neutral-950 pr-6 group-hover:text-neutral-700 transition-colors">
-                      {cap.title}
-                    </h3>
+                    <div className="flex items-center gap-4">
+                      {isOpen && (
+                        <motion.span
+                          layoutId="activeServiceIndicator"
+                          className="w-2.5 h-2.5 rounded-full bg-cyan-500 shadow-sm shadow-cyan-400"
+                        />
+                      )}
+                      <h3 className="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-bold uppercase tracking-tight text-neutral-950 pr-6 group-hover:text-neutral-700 transition-colors">
+                        {cap.title}
+                      </h3>
+                    </div>
                     <motion.div
                       animate={{ rotate: isOpen ? 45 : 0 }}
-                      transition={{ duration: 0.3 }}
+                      transition={{ type: "spring", stiffness: 350, damping: 20 }}
                       className="w-11 h-11 rounded-full border border-neutral-300 group-hover:border-black flex items-center justify-center shrink-0 transition-colors"
                     >
                       {isOpen ? (
@@ -148,7 +156,7 @@ export default function ServicesAccordion({ onOpenContact }) {
                         initial={{ height: 0, opacity: 0 }}
                         animate={{ height: "auto", opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                        transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
                         className="overflow-hidden"
                       >
                         <div className="pb-8 pt-2 space-y-6">
@@ -159,12 +167,14 @@ export default function ServicesAccordion({ onOpenContact }) {
                           {/* Tech Pills */}
                           <div className="flex flex-wrap gap-2.5 pt-1">
                             {cap.techs.map((t) => (
-                              <span
+                              <motion.span
                                 key={t}
-                                className="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white border border-gray-300 text-neutral-800 shadow-xs"
+                                whileHover={{ scale: 1.06, y: -2 }}
+                                transition={{ type: "spring", stiffness: 400, damping: 20 }}
+                                className="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white border border-gray-300 text-neutral-800 shadow-xs cursor-default"
                               >
                                 {t}
-                              </span>
+                              </motion.span>
                             ))}
                           </div>
 
