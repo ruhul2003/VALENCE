@@ -78,9 +78,13 @@ export default function TestimonialsSection() {
       id="testimonials"
       className="py-24 lg:py-36 bg-[#F8FAFC] relative overflow-hidden border-t border-gray-200"
     >
-      {/* Background Orbit Ring with Floating Quote Pills (Replicating Wilbur's exact graphic) */}
+      {/* Background Orbit Ring with Continuous Gentle Rotation */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-40">
-        <div className="w-[900px] h-[900px] lg:w-[1300px] lg:h-[1300px] xl:w-[1450px] xl:h-[1450px] rounded-full border border-dashed border-neutral-400" />
+        <motion.div
+          animate={{ rotate: 360 }}
+          transition={{ repeat: Infinity, duration: 120, ease: "linear" }}
+          className="w-[900px] h-[900px] lg:w-[1300px] lg:h-[1300px] xl:w-[1450px] xl:h-[1450px] rounded-full border border-dashed border-neutral-400"
+        />
       </div>
 
       <div className="w-[95%] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -91,7 +95,8 @@ export default function TestimonialsSection() {
           <motion.div
             animate={{ y: [0, -10, 0] }}
             transition={{ repeat: Infinity, duration: 4.5, ease: "easeInOut" }}
-            className="absolute left-[12%] top-2 flex flex-col items-center"
+            whileHover={{ scale: 1.15, y: -14 }}
+            className="absolute left-[12%] top-2 flex flex-col items-center cursor-pointer"
           >
             <span className="px-3.5 py-1.5 rounded-xl bg-black text-white text-[11px] font-bold tracking-wider shadow-lg mb-2">
               &quot;EXCEPTIONAL&quot;
@@ -109,7 +114,8 @@ export default function TestimonialsSection() {
           <motion.div
             animate={{ y: [0, -12, 0] }}
             transition={{ repeat: Infinity, duration: 5.2, ease: "easeInOut", delay: 0.5 }}
-            className="absolute right-[22%] -top-2 flex flex-col items-center"
+            whileHover={{ scale: 1.15, y: -16 }}
+            className="absolute right-[22%] -top-2 flex flex-col items-center cursor-pointer"
           >
             <span className="px-3.5 py-1.5 rounded-xl bg-black text-white text-[11px] font-bold tracking-wider shadow-lg mb-2">
               &quot;BRILLIANT&quot;
@@ -127,7 +133,8 @@ export default function TestimonialsSection() {
           <motion.div
             animate={{ y: [0, -8, 0] }}
             transition={{ repeat: Infinity, duration: 4.8, ease: "easeInOut", delay: 1 }}
-            className="absolute right-[8%] top-16 flex flex-col items-center"
+            whileHover={{ scale: 1.15, y: -12 }}
+            className="absolute right-[8%] top-16 flex flex-col items-center cursor-pointer"
           >
             <span className="px-3.5 py-1.5 rounded-xl bg-black text-white text-[11px] font-bold tracking-wider shadow-lg mb-2">
               &quot;INCREDIBLE&quot;
