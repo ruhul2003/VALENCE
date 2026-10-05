@@ -168,44 +168,56 @@ export default function HeroSection({ onOpenContact }) {
       >
         <div className="flex flex-wrap items-center gap-8 sm:gap-14 lg:gap-20 text-white">
           {/* Stat 1 */}
-          <div className="flex items-baseline gap-3">
-            <span className="text-4xl sm:text-5xl lg:text-6xl font-light tracking-tight text-white">
+          <motion.div
+            whileHover={{ scale: 1.05, y: -3 }}
+            transition={{ type: "spring", stiffness: 400, damping: 20 }}
+            className="flex items-baseline gap-3 cursor-default group"
+          >
+            <span className="text-4xl sm:text-5xl lg:text-6xl font-light tracking-tight text-white group-hover:text-cyan-300 transition-colors">
               180+
             </span>
             <span className="text-xs sm:text-sm text-neutral-300 uppercase tracking-wider max-w-[140px] leading-snug">
               Global Brands Served Worldwide
             </span>
-          </div>
+          </motion.div>
 
           {/* Slash Divider */}
-          <span className="text-2xl sm:text-3xl text-neutral-500 font-extralight hidden sm:inline">
+          <span className="text-2xl sm:text-3xl text-neutral-500 font-extralight hidden sm:inline select-none">
             /
           </span>
 
           {/* Stat 2 */}
-          <div className="flex items-baseline gap-3">
-            <span className="text-4xl sm:text-5xl lg:text-6xl font-light tracking-tight text-white">
+          <motion.div
+            whileHover={{ scale: 1.05, y: -3 }}
+            transition={{ type: "spring", stiffness: 400, damping: 20 }}
+            className="flex items-baseline gap-3 cursor-default group"
+          >
+            <span className="text-4xl sm:text-5xl lg:text-6xl font-light tracking-tight text-white group-hover:text-cyan-300 transition-colors">
               99.9%
             </span>
             <span className="text-xs sm:text-sm text-neutral-300 uppercase tracking-wider max-w-[140px] leading-snug">
               Client Satisfaction & SLA Rate
             </span>
-          </div>
+          </motion.div>
 
           {/* Slash Divider */}
-          <span className="text-2xl sm:text-3xl text-neutral-500 font-extralight hidden md:inline">
+          <span className="text-2xl sm:text-3xl text-neutral-500 font-extralight hidden md:inline select-none">
             /
           </span>
 
           {/* Stat 3 */}
-          <div className="hidden md:flex items-baseline gap-3">
-            <span className="text-4xl sm:text-5xl lg:text-6xl font-light tracking-tight text-white">
+          <motion.div
+            whileHover={{ scale: 1.05, y: -3 }}
+            transition={{ type: "spring", stiffness: 400, damping: 20 }}
+            className="hidden md:flex items-baseline gap-3 cursor-default group"
+          >
+            <span className="text-4xl sm:text-5xl lg:text-6xl font-light tracking-tight text-white group-hover:text-cyan-300 transition-colors">
               50M+
             </span>
             <span className="text-xs sm:text-sm text-neutral-300 uppercase tracking-wider max-w-[140px] leading-snug">
               Daily Transactions Engineered
             </span>
-          </div>
+          </motion.div>
         </div>
       </motion.div>
     </section>
