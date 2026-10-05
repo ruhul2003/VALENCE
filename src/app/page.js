@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, useScroll, useSpring } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import TechTicker from "@/components/TechTicker";
@@ -19,6 +19,12 @@ import QuickConsultModal from "@/components/QuickConsultModal";
 
 export default function Home() {
   const [modalOpen, setModalOpen] = useState(false);
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001,
+  });
 
   const handleOpenContact = () => {
     // Smooth scroll to the contact section or open modal
@@ -36,6 +42,12 @@ export default function Home() {
 
   return (
     <main className="min-h-screen relative flex flex-col bg-[#F8FAFC]">
+      {/* Dynamic Scroll Progress Bar */}
+      <motion.div
+        className="fixed top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-blue-600 via-indigo-500 to-cyan-400 origin-left z-50 pointer-events-none"
+        style={{ scaleX }}
+      />
+
       {/* Fixed Translucent Navigation Bar */}
       <Navbar onOpenContact={handleOpenContact} />
 
