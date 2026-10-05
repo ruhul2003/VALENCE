@@ -37,7 +37,7 @@ export default function FaqSection() {
 
   return (
     <section id="faq" className="py-24 lg:py-36 bg-[#F8FAFC] border-t border-gray-200">
-      <div className="max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-16 xl:px-20">
+      <div className="w-[95%] mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <motion.div
@@ -57,7 +57,7 @@ export default function FaqSection() {
         </motion.div>
 
         {/* FAQ Accordion List */}
-        <div className="max-w-5xl space-y-4">
+        <div className="max-w-6xl space-y-4">
           {faqs.map((faq, idx) => {
             const isOpen = openIndex === idx;
             return (
@@ -67,22 +67,29 @@ export default function FaqSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.08 }}
-                className={`rounded-2xl transition-all duration-300 border ${
+                whileHover={{ y: -2 }}
+                className={`rounded-2xl transition-all duration-300 border relative overflow-hidden ${
                   isOpen
-                    ? "bg-white border-black/20 shadow-md"
+                    ? "bg-white border-black/30 shadow-lg"
                     : "bg-white/60 border-gray-200 hover:border-gray-300 hover:bg-white"
                 }`}
               >
+                {isOpen && (
+                  <motion.div
+                    layoutId="activeFaqBar"
+                    className="absolute left-0 top-0 bottom-0 w-1.5 bg-black"
+                  />
+                )}
                 <button
                   onClick={() => setOpenIndex(isOpen ? -1 : idx)}
                   className="w-full py-6 sm:py-7 px-6 sm:px-8 flex items-center justify-between text-left group cursor-pointer"
                 >
-                  <span className="text-base sm:text-lg lg:text-xl font-bold text-neutral-950 pr-4">
+                  <span className="text-base sm:text-lg lg:text-xl font-bold text-neutral-950 pr-4 group-hover:text-neutral-700 transition-colors">
                     {faq.question}
                   </span>
                   <motion.div
                     animate={{ rotate: isOpen ? 180 : 0 }}
-                    transition={{ duration: 0.25 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 20 }}
                     className={`w-9 h-9 rounded-full flex items-center justify-center shrink-0 transition-colors ${
                       isOpen ? "bg-black text-white" : "bg-gray-100 text-neutral-700 group-hover:bg-gray-200"
                     }`}
