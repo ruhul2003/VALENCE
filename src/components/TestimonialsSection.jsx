@@ -41,13 +41,36 @@ export default function TestimonialsSection() {
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [direction, setDirection] = useState(1);
 
   const prevSlide = () => {
+    setDirection(-1);
     setCurrentIndex((prev) => (prev === 0 ? testimonials.length - 2 : prev - 1));
   };
 
   const nextSlide = () => {
+    setDirection(1);
     setCurrentIndex((prev) => (prev >= testimonials.length - 2 ? 0 : prev + 1));
+  };
+
+  const slideVariants = {
+    enter: (dir) => ({
+      x: dir > 0 ? 50 : -50,
+      opacity: 0,
+      scale: 0.98,
+    }),
+    center: {
+      x: 0,
+      opacity: 1,
+      scale: 1,
+      transition: { duration: 0.45, ease: [0.16, 1, 0.3, 1] },
+    },
+    exit: (dir) => ({
+      x: dir > 0 ? -50 : 50,
+      opacity: 0,
+      scale: 0.98,
+      transition: { duration: 0.35, ease: [0.16, 1, 0.3, 1] },
+    }),
   };
 
   return (
@@ -60,7 +83,7 @@ export default function TestimonialsSection() {
         <div className="w-[900px] h-[900px] lg:w-[1300px] lg:h-[1300px] xl:w-[1450px] xl:h-[1450px] rounded-full border border-dashed border-neutral-400" />
       </div>
 
-      <div className="max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-16 xl:px-20 relative z-10">
+      <div className="w-[95%] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Floating Bubble Badges around the orbit */}
         <div className="relative mb-12 min-h-[140px] hidden sm:block">
@@ -141,20 +164,29 @@ export default function TestimonialsSection() {
           {[0, 1].map((offset) => {
             const item = testimonials[(currentIndex + offset) % testimonials.length];
             return (
-              <AnimatePresence mode="wait" key={offset}>
+              <AnimatePresence mode="wait" custom={direction} key={offset}>
                 <motion.div
                   key={item.author}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.4 }}
+                  custom={direction}
+                  variants={slideVariants}
+                  initial="enter"
+                  animate="center"
+                  exit="exit"
+                  whileHover={{ y: -4 }}
                   className="rounded-3xl p-8 sm:p-10 lg:p-12 bg-white border border-gray-200/90 shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col justify-between"
                 >
                   <div>
                     {/* Gold Stars */}
-                    <div className="flex items-center gap-1 text-amber-400 mb-6">
+                    <div className="flex items-center gap-1.5 text-amber-400 mb-6">
                       {[...Array(item.stars)].map((_, i) => (
-                        <Star key={i} className="w-5 h-5 fill-amber-400 text-amber-400" />
+                        <motion.div
+                          key={i}
+                          initial={{ scale: 0 }}
+                          animate={{ scale: 1 }}
+                          transition={{ delay: i * 0.08, type: "spring", stiffness: 400 }}
+                        >
+                          <Star className="w-5 h-5 fill-amber-400 text-amber-400" />
+                        </motion.div>
                       ))}
                     </div>
 
