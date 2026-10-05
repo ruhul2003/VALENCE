@@ -1,15 +1,21 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 
 export default function ProjectsSection({ onOpenContact }) {
+  const [selectedFilter, setSelectedFilter] = useState("ALL");
+
+  const categories = ["ALL", "AI AGENTS", "FINTECH", "CLOUD INFRA"];
+
   const projects = [
     {
       number: "01",
       title: "AETHERFLOW AI",
-      category: "AUTONOMOUS ENTERPRISE AGENTS",
+      category: "AI AGENTS",
+      displayCategory: "AUTONOMOUS ENTERPRISE AGENTS",
       description:
         "Full-stack agentic orchestration platform coordinating multi-step analytical workflows across distributed cloud clusters with real-time token telemetry.",
       image: "/assets/project-novaflow.jpg",
@@ -19,7 +25,8 @@ export default function ProjectsSection({ onOpenContact }) {
     {
       number: "02",
       title: "ALGOFIN MATRIX",
-      category: "FINTECH & ALGORITHMIC TRADING",
+      category: "FINTECH",
+      displayCategory: "FINTECH & ALGORITHMIC TRADING",
       description:
         "Institutional-grade order execution terminal and real-time market depth visualization handling 150,000+ orders per second with zero drift.",
       image: "/assets/project-apexscale.jpg",
@@ -29,7 +36,8 @@ export default function ProjectsSection({ onOpenContact }) {
     {
       number: "03",
       title: "HYPERSCALE CLOUD MESH",
-      category: "SERVERLESS INFRASTRUCTURE",
+      category: "CLOUD INFRA",
+      displayCategory: "SERVERLESS INFRASTRUCTURE",
       description:
         "Distributed multi-region container orchestration fabric providing automated Canary deployments and self-healing cluster recovery.",
       image: "/assets/hero-ai-card.jpg",
@@ -39,7 +47,8 @@ export default function ProjectsSection({ onOpenContact }) {
     {
       number: "04",
       title: "MEDISYNAPSE HEALTH",
-      category: "HEALTHCARE DATA FABRIC",
+      category: "AI AGENTS",
+      displayCategory: "HEALTHCARE DATA FABRIC",
       description:
         "HIPAA-compliant federated health analytics platform bridging hospital records, real-time diagnostic telemetry, and clinical research.",
       image: "/assets/engineers-team.jpg",
@@ -48,9 +57,14 @@ export default function ProjectsSection({ onOpenContact }) {
     },
   ];
 
+  const filteredProjects =
+    selectedFilter === "ALL"
+      ? projects
+      : projects.filter((p) => p.category === selectedFilter);
+
   return (
     <section id="projects" className="py-24 lg:py-36 bg-white border-t border-gray-200">
-      <div className="max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-16 xl:px-20">
+      <div className="w-[95%] mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Top Header Row (Wilbur Layout) */}
         <motion.div
@@ -58,7 +72,7 @@ export default function ProjectsSection({ onOpenContact }) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="flex flex-col md:flex-row md:items-end justify-between mb-16 lg:mb-24 gap-6"
+          className="flex flex-col md:flex-row md:items-end justify-between mb-12 lg:mb-16 gap-6"
         >
           <div className="space-y-4">
             <div className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.2em] text-neutral-500 uppercase">
@@ -81,27 +95,54 @@ export default function ProjectsSection({ onOpenContact }) {
           </motion.button>
         </motion.div>
 
+        {/* Filter Category Pills with Framer Motion layoutId */}
+        <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-12 sm:mb-16">
+          {categories.map((cat) => {
+            const isSelected = selectedFilter === cat;
+            return (
+              <button
+                key={cat}
+                onClick={() => setSelectedFilter(cat)}
+                className={`relative px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-colors duration-300 cursor-pointer ${
+                  isSelected ? "text-white" : "text-neutral-600 hover:text-black"
+                }`}
+              >
+                {isSelected && (
+                  <motion.span
+                    layoutId="activeProjectPill"
+                    className="absolute inset-0 rounded-full bg-black z-0 shadow-sm"
+                    transition={{ type: "spring", stiffness: 450, damping: 30 }}
+                  />
+                )}
+                <span className="relative z-10">{cat}</span>
+              </button>
+            );
+          })}
+        </div>
+
         {/* Projects Grid with Massive Numerals */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16 xl:gap-20">
-          {projects.map((proj, idx) => (
-            <motion.div
-              key={proj.number}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.7, delay: idx * 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="group flex flex-col space-y-4"
-            >
-              
-              {/* Massive Numeral (Wilbur signature style) */}
-              <div className="flex items-baseline justify-between border-b border-gray-100 pb-2">
-                <span className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-light text-neutral-900 tracking-tight">
-                  {proj.number}
-                </span>
-                <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-neutral-400 group-hover:text-black transition-colors">
-                  {proj.category}
-                </span>
-              </div>
+        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16 xl:gap-20">
+          <AnimatePresence>
+            {filteredProjects.map((proj, idx) => (
+              <motion.div
+                key={proj.number}
+                layout
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.4, delay: idx * 0.05 }}
+                className="group flex flex-col space-y-4"
+              >
+                
+                {/* Massive Numeral (Wilbur signature style) */}
+                <div className="flex items-baseline justify-between border-b border-gray-100 pb-2">
+                  <span className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-light text-neutral-900 tracking-tight">
+                    {proj.number}
+                  </span>
+                  <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-neutral-400 group-hover:text-black transition-colors">
+                    {proj.displayCategory}
+                  </span>
+                </div>
 
               {/* Project Card Image Container */}
               <div className="relative aspect-[16/10] lg:aspect-[16/9.5] w-full rounded-3xl overflow-hidden bg-neutral-900 border border-gray-200/80 shadow-md group-hover:shadow-2xl transition-all duration-500">
@@ -154,7 +195,8 @@ export default function ProjectsSection({ onOpenContact }) {
 
             </motion.div>
           ))}
-        </div>
+          </AnimatePresence>
+        </motion.div>
 
       </div>
     </section>
