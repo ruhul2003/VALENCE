@@ -24,7 +24,7 @@ export default function ContactSection() {
 
   return (
     <section id="contact" className="py-24 lg:py-36 bg-[#F8FAFC] border-t border-gray-200">
-      <div className="max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-16 xl:px-20">
+      <div className="w-[95%] mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Top Header Row (Wilbur Style) */}
         <motion.div
@@ -54,32 +54,25 @@ export default function ContactSection() {
             </h3>
 
             <div className="space-y-6 pt-4">
-              <div className="flex items-center gap-4">
-                <div className="w-8 h-8 rounded-full bg-black text-white flex items-center justify-center shrink-0">
-                  <Check className="w-4 h-4" />
-                </div>
-                <span className="text-base sm:text-lg lg:text-xl font-semibold text-neutral-800">
-                  Request A Free Technical Consultation
-                </span>
-              </div>
-
-              <div className="flex items-center gap-4">
-                <div className="w-8 h-8 rounded-full bg-black text-white flex items-center justify-center shrink-0">
-                  <Check className="w-4 h-4" />
-                </div>
-                <span className="text-base sm:text-lg lg:text-xl font-semibold text-neutral-800">
-                  Get A Tailored Solution Architecture Plan
-                </span>
-              </div>
-
-              <div className="flex items-center gap-4">
-                <div className="w-8 h-8 rounded-full bg-black text-white flex items-center justify-center shrink-0">
-                  <Check className="w-4 h-4" />
-                </div>
-                <span className="text-base sm:text-lg lg:text-xl font-semibold text-neutral-800">
-                  Connect Directly With Our Principal Engineers
-                </span>
-              </div>
+              {[
+                "Request A Free Technical Consultation",
+                "Get A Tailored Solution Architecture Plan",
+                "Connect Directly With Our Principal Engineers",
+              ].map((text, i) => (
+                <motion.div
+                  key={i}
+                  whileHover={{ x: 6 }}
+                  transition={{ type: "spring", stiffness: 350, damping: 20 }}
+                  className="flex items-center gap-4 group cursor-default"
+                >
+                  <div className="w-8 h-8 rounded-full bg-black text-white flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                    <Check className="w-4 h-4" />
+                  </div>
+                  <span className="text-base sm:text-lg lg:text-xl font-semibold text-neutral-800 group-hover:text-black transition-colors">
+                    {text}
+                  </span>
+                </motion.div>
+              ))}
             </div>
 
             <div className="pt-8 border-t border-gray-200">
@@ -102,17 +95,29 @@ export default function ContactSection() {
           >
             <div className="relative rounded-3xl bg-[#EEF2F6]/70 border border-gray-300/60 p-6 sm:p-10 lg:p-12 shadow-xl">
               {submitted ? (
-                <div className="py-16 text-center space-y-4 animate-in fade-in duration-300">
-                  <div className="w-16 h-16 rounded-full bg-black text-white mx-auto flex items-center justify-center shadow-lg">
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 25 }}
+                  className="py-16 text-center space-y-4"
+                >
+                  <motion.div
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ delay: 0.1, type: "spring", stiffness: 400 }}
+                    className="w-16 h-16 rounded-full bg-black text-white mx-auto flex items-center justify-center shadow-lg"
+                  >
                     <CheckCircle2 className="w-8 h-8 text-cyan-400" />
-                  </div>
+                  </motion.div>
                   <h4 className="text-2xl sm:text-3xl font-bold uppercase tracking-tight text-neutral-950">
                     Consultation Request Received
                   </h4>
                   <p className="text-sm sm:text-base text-neutral-600 max-w-md mx-auto leading-relaxed">
                     Thank you, <span className="font-semibold text-black">{formData.fullName}</span>. One of our Principal Software Architects will review your project brief and email you within 24 hours.
                   </p>
-                  <button
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
                     onClick={() => {
                       setSubmitted(false);
                       setFormData({
@@ -124,11 +129,11 @@ export default function ContactSection() {
                         projectDetails: "",
                       });
                     }}
-                    className="mt-4 px-6 py-2.5 rounded-full bg-black text-white text-xs font-semibold hover:bg-neutral-800 transition-colors"
+                    className="mt-4 px-6 py-2.5 rounded-full bg-black text-white text-xs font-semibold hover:bg-neutral-800 transition-colors cursor-pointer"
                   >
                     Submit Another Inquiry
-                  </button>
-                </div>
+                  </motion.button>
+                </motion.div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
                   
