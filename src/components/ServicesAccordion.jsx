@@ -179,24 +179,36 @@ export default function ServicesAccordion({ onOpenContact }) {
                           </div>
 
                           {/* Visual Preview Box (Replicating Wilbur's expanded card visual) */}
-                          <div className="rounded-2xl p-6 sm:p-8 bg-neutral-900 text-white border border-neutral-800 shadow-lg relative overflow-hidden">
-                            <div className="flex flex-wrap items-center justify-between gap-4 mb-4">
+                          <motion.div
+                            initial={{ opacity: 0, y: 15 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.4, delay: 0.1 }}
+                            whileHover={{ scale: 1.01 }}
+                            className="rounded-2xl p-6 sm:p-8 bg-neutral-900 text-white border border-neutral-800 shadow-lg relative overflow-hidden group/card"
+                          >
+                            <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none group-hover/card:bg-cyan-500/15 transition-colors" />
+                            <div className="relative z-10 flex flex-wrap items-center justify-between gap-4 mb-4">
                               <span className="text-xs font-bold uppercase tracking-wider text-cyan-400 bg-cyan-950/60 px-3 py-1 rounded-full border border-cyan-800/40">
                                 {cap.preview.badge}
                               </span>
                               <div className="flex items-baseline gap-2">
-                                <span className="text-3xl font-extrabold text-white">
+                                <motion.span
+                                  initial={{ scale: 0.8 }}
+                                  animate={{ scale: 1 }}
+                                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                                  className="text-3xl font-extrabold text-white"
+                                >
                                   {cap.preview.metric}
-                                </span>
+                                </motion.span>
                                 <span className="text-xs text-neutral-400 uppercase tracking-wide">
                                   {cap.preview.metricLabel}
                                 </span>
                               </div>
                             </div>
-                            <p className="text-sm sm:text-base text-neutral-300 font-light leading-relaxed">
+                            <p className="relative z-10 text-sm sm:text-base text-neutral-300 font-light leading-relaxed">
                               {cap.preview.highlight}
                             </p>
-                          </div>
+                          </motion.div>
                         </div>
                       </motion.div>
                     )}
