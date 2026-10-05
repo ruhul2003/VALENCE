@@ -7,7 +7,7 @@ import { CheckCircle2, ShieldCheck, Zap } from "lucide-react";
 export default function AboutSection() {
   return (
     <section id="about" className="py-24 lg:py-36 bg-[#F8FAFC]">
-      <div className="max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-16 xl:px-20">
+      <div className="w-[95%] mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header: Wilbur Split Layout */}
         <motion.div
@@ -121,37 +121,49 @@ export default function AboutSection() {
 
             {/* Checklist of Engineering Guarantees */}
             <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 gap-5 pt-8 mt-8 border-t border-neutral-800">
-              <div className="flex items-start gap-3">
-                <CheckCircle2 className="w-5 h-5 text-cyan-400 shrink-0 mt-0.5" />
-                <div>
-                  <span className="text-sm sm:text-base font-semibold block text-white">Full IP Ownership</span>
-                  <span className="text-xs text-neutral-400">100% of code, repos, and cloud keys belong to you.</span>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3">
-                <ShieldCheck className="w-5 h-5 text-cyan-400 shrink-0 mt-0.5" />
-                <div>
-                  <span className="text-sm sm:text-base font-semibold block text-white">Zero-Trust Security</span>
-                  <span className="text-xs text-neutral-400">SOC2, HIPAA, and GDPR compliant practices built-in.</span>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3">
-                <Zap className="w-5 h-5 text-cyan-400 shrink-0 mt-0.5" />
-                <div>
-                  <span className="text-sm sm:text-base font-semibold block text-white">Predictable Sprints</span>
-                  <span className="text-xs text-neutral-400">Weekly demonstrable releases with clear KPI tracking.</span>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3">
-                <CheckCircle2 className="w-5 h-5 text-cyan-400 shrink-0 mt-0.5" />
-                <div>
-                  <span className="text-sm sm:text-base font-semibold block text-white">Continuous Uptime</span>
-                  <span className="text-xs text-neutral-400">99.9% availability SLAs with automated self-healing.</span>
-                </div>
-              </div>
+              {[
+                {
+                  icon: CheckCircle2,
+                  title: "Full IP Ownership",
+                  desc: "100% of code, repos, and cloud keys belong to you.",
+                },
+                {
+                  icon: ShieldCheck,
+                  title: "Zero-Trust Security",
+                  desc: "SOC2, HIPAA, and GDPR compliant practices built-in.",
+                },
+                {
+                  icon: Zap,
+                  title: "Predictable Sprints",
+                  desc: "Weekly demonstrable releases with clear KPI tracking.",
+                },
+                {
+                  icon: CheckCircle2,
+                  title: "Continuous Uptime",
+                  desc: "99.9% availability SLAs with automated self-healing.",
+                },
+              ].map((item, idx) => {
+                const Icon = item.icon;
+                return (
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, y: 15 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.1 * idx }}
+                    whileHover={{ x: 4 }}
+                    className="flex items-start gap-3 group cursor-default"
+                  >
+                    <Icon className="w-5 h-5 text-cyan-400 shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
+                    <div>
+                      <span className="text-sm sm:text-base font-semibold block text-white group-hover:text-cyan-300 transition-colors">
+                        {item.title}
+                      </span>
+                      <span className="text-xs text-neutral-400">{item.desc}</span>
+                    </div>
+                  </motion.div>
+                );
+              })}
             </div>
           </motion.div>
         </div>
