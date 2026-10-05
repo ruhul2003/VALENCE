@@ -9,7 +9,7 @@ export default function AiExcellenceSection() {
       id="ai-excellence"
       className="py-24 lg:py-36 bg-gradient-to-b from-[#F8FAFC] via-[#EDF4FA] to-[#F8FAFC] relative overflow-hidden border-t border-gray-200"
     >
-      <div className="max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-16 xl:px-20 relative z-10">
+      <div className="w-[95%] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Subtle Section Tag */}
         <motion.div
@@ -133,6 +133,20 @@ export default function AiExcellenceSection() {
             }}
             className="relative w-[320px] h-[320px] sm:w-[420px] sm:h-[420px] lg:w-[500px] lg:h-[500px] xl:w-[540px] xl:h-[540px] flex items-center justify-center cursor-pointer"
           >
+            {/* Rotating Neural Orbit Ring */}
+            <motion.div
+              animate={{ rotate: 360 }}
+              transition={{ repeat: Infinity, duration: 30, ease: "linear" }}
+              className="absolute inset-[-15px] sm:inset-[-25px] rounded-full border border-dashed border-cyan-400/30 pointer-events-none"
+            />
+
+            {/* Expanding Radar Pulse Ring */}
+            <motion.div
+              animate={{ scale: [1, 1.35], opacity: [0.5, 0] }}
+              transition={{ repeat: Infinity, duration: 3.5, ease: "easeOut" }}
+              className="absolute inset-0 rounded-full border border-cyan-400/50 pointer-events-none"
+            />
+
             {/* Glowing Pulse Rings */}
             <motion.div
               animate={{ scale: [1, 1.08, 1], opacity: [0.25, 0.45, 0.25] }}
