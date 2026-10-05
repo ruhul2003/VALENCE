@@ -41,9 +41,14 @@ export default function Navbar({ onOpenContact }) {
           : "bg-transparent py-6"
       }`}
     >
-      <div className="max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-16 xl:px-20 flex items-center justify-between">
+      <div className="w-[95%] mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         {/* Brand Logo */}
-        <a href="#hero" className="flex items-center gap-2 group">
+        <motion.a
+          href="#hero"
+          whileHover={{ scale: 1.03 }}
+          whileTap={{ scale: 0.98 }}
+          className="flex items-center gap-2 group cursor-pointer"
+        >
           <div className="flex items-center tracking-tighter">
             <span
               className={`font-black italic text-xl mr-1 tracking-widest transition-colors ${
@@ -60,7 +65,7 @@ export default function Navbar({ onOpenContact }) {
               VALENCE
             </span>
           </div>
-        </a>
+        </motion.a>
 
         {/* Desktop Nav Links */}
         <nav className="hidden md:flex items-center space-x-8">
@@ -68,15 +73,17 @@ export default function Navbar({ onOpenContact }) {
             <motion.a
               key={link.label}
               href={link.href}
-              whileHover={{ y: -1 }}
-              className={`text-[15px] font-medium transition-colors tracking-wide relative group ${
+              whileHover={{ y: -2 }}
+              whileTap={{ y: 0 }}
+              transition={{ type: "spring", stiffness: 400, damping: 17 }}
+              className={`text-[15px] font-medium transition-colors tracking-wide relative group py-1 ${
                 scrolled
                   ? "text-gray-700 hover:text-black"
                   : "text-white/80 hover:text-white"
               }`}
             >
               {link.label}
-              <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-cyan-400 group-hover:w-full transition-all duration-300" />
+              <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-gradient-to-r from-blue-500 to-cyan-400 group-hover:w-full transition-all duration-300 rounded-full" />
             </motion.a>
           ))}
         </nav>
@@ -84,8 +91,9 @@ export default function Navbar({ onOpenContact }) {
         {/* Right CTA Button */}
         <div className="hidden md:flex items-center">
           <motion.button
-            whileHover={{ scale: 1.04 }}
+            whileHover={{ scale: 1.05, y: -1 }}
             whileTap={{ scale: 0.96 }}
+            transition={{ type: "spring", stiffness: 400, damping: 20 }}
             onClick={onOpenContact}
             className={`group rounded-full px-7 h-[44px] lg:h-[48px] flex items-center gap-3 text-[14px] font-semibold transition-all duration-300 cursor-pointer ${
               scrolled
@@ -99,37 +107,41 @@ export default function Navbar({ onOpenContact }) {
         </div>
 
         {/* Mobile Hamburger Toggle */}
-        <button
+        <motion.button
+          whileTap={{ scale: 0.9 }}
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className={`md:hidden p-2 rounded-lg transition-colors ${
+          className={`md:hidden p-2 rounded-lg transition-colors cursor-pointer ${
             scrolled ? "text-black" : "text-white"
           }`}
           aria-label="Toggle Navigation Menu"
         >
           {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-        </button>
+        </motion.button>
       </div>
 
       {/* Mobile Drawer Menu */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.25, ease: "easeOut" }}
-            className="md:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-2xl border-b border-black/10 px-6 py-6 shadow-2xl"
+            initial={{ opacity: 0, height: 0, y: -10 }}
+            animate={{ opacity: 1, height: "auto", y: 0 }}
+            exit={{ opacity: 0, height: 0, y: -10 }}
+            transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            className="md:hidden overflow-hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-2xl border-b border-black/10 px-6 py-6 shadow-2xl"
           >
             <div className="flex flex-col space-y-4">
-              {navLinks.map((link) => (
-                <a
+              {navLinks.map((link, idx) => (
+                <motion.a
                   key={link.label}
                   href={link.href}
+                  initial={{ opacity: 0, x: -10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: idx * 0.04 }}
                   onClick={() => setMobileMenuOpen(false)}
                   className="text-base font-medium text-gray-800 hover:text-black py-2 border-b border-gray-100"
                 >
                   {link.label}
-                </a>
+                </motion.a>
               ))}
               <motion.button
                 whileTap={{ scale: 0.97 }}
