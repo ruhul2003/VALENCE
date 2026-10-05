@@ -1,7 +1,10 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowUp } from "lucide-react";
+
+const MotionLink = motion.create(Link);
 
 export default function Footer({ onOpenContact }) {
   const scrollToTop = () => {
@@ -17,14 +20,14 @@ export default function Footer({ onOpenContact }) {
           
           {/* Col 1: Brand & Address (4 cols) */}
           <div className="md:col-span-4 space-y-6">
-            <div className="flex items-center tracking-tighter">
+            <Link href="#hero" className="flex items-center tracking-tighter group inline-block">
               <span className="font-black italic text-2xl mr-1 tracking-widest text-black">
                 ///
               </span>
               <span className="font-extrabold text-2xl tracking-[0.18em] text-black">
                 VALENCE
               </span>
-            </div>
+            </Link>
 
             <p className="text-sm text-neutral-600 leading-relaxed max-w-sm">
               Delivering enterprise software architecture, autonomous AI platforms,
@@ -55,14 +58,14 @@ export default function Footer({ onOpenContact }) {
                 { label: "FAQ & Pricing", href: "#faq" },
               ].map((link) => (
                 <li key={link.label}>
-                  <motion.a
+                  <MotionLink
                     href={link.href}
                     whileHover={{ x: 4 }}
                     transition={{ type: "spring", stiffness: 400, damping: 20 }}
                     className="hover:text-black transition-colors inline-block"
                   >
                     {link.label}
-                  </motion.a>
+                  </MotionLink>
                 </li>
               ))}
             </ul>
@@ -140,12 +143,12 @@ export default function Footer({ onOpenContact }) {
           </div>
 
           <div className="flex items-center gap-6">
-            <a href="#hero" className="hover:text-black transition-colors">
+            <Link href="#hero" className="hover:text-black transition-colors">
               Privacy Policy
-            </a>
-            <a href="#hero" className="hover:text-black transition-colors">
+            </Link>
+            <Link href="#hero" className="hover:text-black transition-colors">
               Terms of Service
-            </a>
+            </Link>
             <motion.button
               whileHover={{ scale: 1.15, y: -2 }}
               whileTap={{ scale: 0.9 }}

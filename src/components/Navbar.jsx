@@ -1,8 +1,11 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Menu, X } from "lucide-react";
+
+const MotionLink = motion.create(Link);
 
 export default function Navbar({ onOpenContact }) {
   const [scrolled, setScrolled] = useState(false);
@@ -43,7 +46,7 @@ export default function Navbar({ onOpenContact }) {
     >
       <div className="w-[95%] mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         {/* Brand Logo */}
-        <motion.a
+        <MotionLink
           href="#hero"
           whileHover={{ scale: 1.03 }}
           whileTap={{ scale: 0.98 }}
@@ -65,12 +68,12 @@ export default function Navbar({ onOpenContact }) {
               VALENCE
             </span>
           </div>
-        </motion.a>
+        </MotionLink>
 
         {/* Desktop Nav Links */}
         <nav className="hidden md:flex items-center space-x-8">
           {navLinks.map((link) => (
-            <motion.a
+            <MotionLink
               key={link.label}
               href={link.href}
               whileHover={{ y: -2 }}
@@ -84,7 +87,7 @@ export default function Navbar({ onOpenContact }) {
             >
               {link.label}
               <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-gradient-to-r from-blue-500 to-cyan-400 group-hover:w-full transition-all duration-300 rounded-full" />
-            </motion.a>
+            </MotionLink>
           ))}
         </nav>
 
@@ -131,7 +134,7 @@ export default function Navbar({ onOpenContact }) {
           >
             <div className="flex flex-col space-y-4">
               {navLinks.map((link, idx) => (
-                <motion.a
+                <MotionLink
                   key={link.label}
                   href={link.href}
                   initial={{ opacity: 0, x: -10 }}
@@ -141,7 +144,7 @@ export default function Navbar({ onOpenContact }) {
                   className="text-base font-medium text-gray-800 hover:text-black py-2 border-b border-gray-100"
                 >
                   {link.label}
-                </motion.a>
+                </MotionLink>
               ))}
               <motion.button
                 whileTap={{ scale: 0.97 }}
