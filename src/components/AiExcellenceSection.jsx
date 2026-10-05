@@ -11,18 +11,25 @@ export default function AiExcellenceSection() {
     >
       <div className="w-[95%] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Subtle Section Tag */}
+        {/* Subtle Section Tag with Live Telemetry Pulse */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="flex justify-center mb-6"
+          className="flex flex-wrap items-center justify-center gap-3 mb-6"
         >
           <div className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.2em] text-neutral-500 uppercase">
             <span className="w-1.5 h-1.5 rounded-full bg-cyan-600" />
             <span>AI COGNITIVE ARCHITECTURE</span>
           </div>
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-[11px] font-semibold cursor-default"
+          >
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+            <span>Telemetry: 12.4ms latency</span>
+          </motion.div>
         </motion.div>
 
         <motion.div
@@ -45,9 +52,9 @@ export default function AiExcellenceSection() {
             initial={{ opacity: 0, x: -30, y: -20 }}
             whileInView={{ opacity: 1, x: 0, y: 0 }}
             viewport={{ once: true }}
-            whileHover={{ scale: 1.04 }}
-            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="absolute top-0 left-0 max-w-[320px] xl:max-w-[360px] text-left space-y-2 cursor-pointer"
+            whileHover={{ scale: 1.05, y: -4 }}
+            transition={{ type: "spring", stiffness: 350, damping: 20 }}
+            className="absolute top-0 left-0 max-w-[320px] xl:max-w-[360px] text-left space-y-2 p-4 sm:p-5 rounded-2xl transition-all duration-300 hover:bg-white/80 hover:shadow-xl hover:border-gray-200/80 border border-transparent cursor-pointer"
           >
             <span className="text-xs font-bold tracking-[0.15em] text-cyan-700 uppercase block">
               MACHINE LEARNING
@@ -65,9 +72,9 @@ export default function AiExcellenceSection() {
             initial={{ opacity: 0, x: 30, y: -20 }}
             whileInView={{ opacity: 1, x: 0, y: 0 }}
             viewport={{ once: true }}
-            whileHover={{ scale: 1.04 }}
-            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="absolute top-0 right-0 max-w-[320px] xl:max-w-[360px] text-right space-y-2 cursor-pointer"
+            whileHover={{ scale: 1.05, y: -4 }}
+            transition={{ type: "spring", stiffness: 350, damping: 20 }}
+            className="absolute top-0 right-0 max-w-[320px] xl:max-w-[360px] text-right space-y-2 p-4 sm:p-5 rounded-2xl transition-all duration-300 hover:bg-white/80 hover:shadow-xl hover:border-gray-200/80 border border-transparent cursor-pointer"
           >
             <span className="text-xs font-bold tracking-[0.15em] text-cyan-700 uppercase block">
               ADVANTAGE
@@ -85,9 +92,9 @@ export default function AiExcellenceSection() {
             initial={{ opacity: 0, x: -30, y: 20 }}
             whileInView={{ opacity: 1, x: 0, y: 0 }}
             viewport={{ once: true }}
-            whileHover={{ scale: 1.04 }}
-            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="absolute bottom-0 left-0 max-w-[320px] xl:max-w-[360px] text-left space-y-2 cursor-pointer"
+            whileHover={{ scale: 1.05, y: -4 }}
+            transition={{ type: "spring", stiffness: 350, damping: 20 }}
+            className="absolute bottom-0 left-0 max-w-[320px] xl:max-w-[360px] text-left space-y-2 p-4 sm:p-5 rounded-2xl transition-all duration-300 hover:bg-white/80 hover:shadow-xl hover:border-gray-200/80 border border-transparent cursor-pointer"
           >
             <span className="text-xs font-bold tracking-[0.15em] text-cyan-700 uppercase block">
               AI EVOLVES
@@ -105,9 +112,9 @@ export default function AiExcellenceSection() {
             initial={{ opacity: 0, x: 30, y: 20 }}
             whileInView={{ opacity: 1, x: 0, y: 0 }}
             viewport={{ once: true }}
-            whileHover={{ scale: 1.04 }}
-            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="absolute bottom-0 right-0 max-w-[320px] xl:max-w-[360px] text-right space-y-2 cursor-pointer"
+            whileHover={{ scale: 1.05, y: -4 }}
+            transition={{ type: "spring", stiffness: 350, damping: 20 }}
+            className="absolute bottom-0 right-0 max-w-[320px] xl:max-w-[360px] text-right space-y-2 p-4 sm:p-5 rounded-2xl transition-all duration-300 hover:bg-white/80 hover:shadow-xl hover:border-gray-200/80 border border-transparent cursor-pointer"
           >
             <span className="text-xs font-bold tracking-[0.15em] text-cyan-700 uppercase block">
               AI CUSTOMIZES
