@@ -168,9 +168,10 @@ export default function ProjectsSection({ onOpenContact }) {
                     </h3>
                   </div>
                   <motion.div
-                    whileHover={{ rotate: 45 }}
-                    transition={{ type: "spring", stiffness: 300 }}
-                    className="w-12 h-12 rounded-full bg-white text-black flex items-center justify-center shadow-lg transition-transform group-hover:scale-105"
+                    whileHover={{ scale: 1.15, rotate: 45 }}
+                    whileTap={{ scale: 0.9 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 15 }}
+                    className="w-12 h-12 rounded-full bg-white text-black flex items-center justify-center shadow-lg cursor-pointer"
                   >
                     <ArrowUpRight className="w-6 h-6" />
                   </motion.div>
@@ -178,18 +179,20 @@ export default function ProjectsSection({ onOpenContact }) {
               </div>
 
               {/* Project Description and Tags */}
-              <p className="text-sm sm:text-base text-neutral-600 leading-relaxed pt-1">
+              <p className="text-sm sm:text-base text-neutral-600 leading-relaxed pt-1 font-normal">
                 {proj.description}
               </p>
 
               <div className="flex flex-wrap gap-2.5 pt-1">
                 {proj.tags.map((tag) => (
-                  <span
+                  <motion.span
                     key={tag}
-                    className="px-3 py-1.5 rounded-lg text-xs font-semibold bg-gray-100 text-neutral-700"
+                    whileHover={{ scale: 1.08, y: -2 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 20 }}
+                    className="px-3 py-1.5 rounded-lg text-xs font-semibold bg-gray-100 text-neutral-700 hover:bg-neutral-900 hover:text-white transition-colors cursor-default shadow-xs"
                   >
                     {tag}
-                  </span>
+                  </motion.span>
                 ))}
               </div>
 
