@@ -116,8 +116,8 @@ export default function QuickConsultModal({ isOpen, onClose }) {
                 </div>
 
                 <motion.button
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
+                  whileHover={{ scale: 1.03, y: -1 }}
+                  whileTap={{ scale: 0.97 }}
                   type="submit"
                   className="w-full h-12 rounded-full bg-black hover:bg-neutral-800 text-white font-semibold text-sm flex items-center justify-center gap-2 shadow-lg transition-colors cursor-pointer"
                 >
