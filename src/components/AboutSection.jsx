@@ -80,9 +80,17 @@ export default function AboutSection() {
             
             {/* Card Content Badge */}
             <div className="absolute bottom-8 left-8 right-8 text-white space-y-2">
-              <span className="inline-block px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-xs font-semibold tracking-wider uppercase">
-                Core Capability
-              </span>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-xs font-semibold tracking-wider uppercase border border-white/20"
+              >
+                <motion.span
+                  animate={{ scale: [1, 1.4, 1], opacity: [0.5, 1, 0.5] }}
+                  transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+                  className="w-2 h-2 rounded-full bg-emerald-400 inline-block"
+                />
+                <span>Active Squads Deployed</span>
+              </motion.div>
               <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold tracking-tight">
                 Trusted Enterprise Engineering
               </h3>
@@ -102,8 +110,16 @@ export default function AboutSection() {
             className="md:col-span-6 lg:col-span-7 flex flex-col justify-between rounded-3xl p-8 sm:p-10 lg:p-14 bg-neutral-950 text-white relative overflow-hidden shadow-xl"
           >
             {/* Ambient backdrop glow */}
-            <div className="absolute -right-20 -top-20 w-80 h-80 bg-cyan-500/15 rounded-full blur-[100px] pointer-events-none" />
-            <div className="absolute -left-20 -bottom-20 w-80 h-80 bg-indigo-500/15 rounded-full blur-[100px] pointer-events-none" />
+            <motion.div
+              animate={{ scale: [1, 1.25, 1], opacity: [0.12, 0.22, 0.12] }}
+              transition={{ repeat: Infinity, duration: 7, ease: "easeInOut" }}
+              className="absolute -right-20 -top-20 w-80 h-80 bg-cyan-500/20 rounded-full blur-[100px] pointer-events-none"
+            />
+            <motion.div
+              animate={{ scale: [1, 1.2, 1], opacity: [0.12, 0.22, 0.12] }}
+              transition={{ repeat: Infinity, duration: 8, ease: "easeInOut", delay: 1 }}
+              className="absolute -left-20 -bottom-20 w-80 h-80 bg-indigo-500/20 rounded-full blur-[100px] pointer-events-none"
+            />
 
             <div className="relative z-10 space-y-6">
               <span className="text-xs font-bold tracking-[0.2em] text-cyan-400 uppercase">
