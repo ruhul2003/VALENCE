@@ -49,7 +49,7 @@ export default function CoreValuesSection() {
 
   return (
     <section className="py-24 lg:py-36 bg-white border-t border-gray-100">
-      <div className="max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-16 xl:px-20">
+      <div className="w-[95%] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 25 }}
@@ -81,14 +81,15 @@ export default function CoreValuesSection() {
               <motion.div
                 key={val.number}
                 variants={cardVariants}
-                whileHover={{ y: -8 }}
+                whileHover={{ y: -10, scale: 1.02 }}
                 transition={{ type: "spring", stiffness: 350, damping: 25 }}
-                className="group relative rounded-3xl p-8 sm:p-10 lg:p-12 bg-[#F8FAFC] border border-gray-200/80 hover:border-black/30 hover:bg-white transition-colors duration-300 hover:shadow-2xl flex flex-col justify-between"
+                className="group relative rounded-3xl p-8 sm:p-10 lg:p-12 bg-[#F8FAFC] border border-gray-200/80 hover:border-black/30 hover:bg-white transition-colors duration-300 hover:shadow-2xl flex flex-col justify-between cursor-pointer"
               >
                 <div>
                   <div className="flex items-center justify-between mb-8 sm:mb-10">
                     <motion.div
-                      whileHover={{ scale: 1.1, rotate: 4 }}
+                      whileHover={{ scale: 1.15, rotate: 6 }}
+                      transition={{ type: "spring", stiffness: 400, damping: 15 }}
                       className="w-14 h-14 rounded-2xl bg-white border border-gray-200 shadow-xs flex items-center justify-center text-black group-hover:bg-black group-hover:text-white transition-colors duration-300"
                     >
                       <Icon className="w-7 h-7" />
@@ -109,7 +110,7 @@ export default function CoreValuesSection() {
 
                 <div className="pt-8 sm:pt-10 mt-8 border-t border-gray-200/60 flex items-center text-xs font-bold uppercase tracking-wider text-neutral-400 group-hover:text-black transition-colors">
                   <span>Learn Protocol</span>
-                  <span className="ml-2 font-normal transition-transform group-hover:translate-x-1">→</span>
+                  <span className="ml-2 font-normal transition-transform duration-300 group-hover:translate-x-2">→</span>
                 </div>
               </motion.div>
             );
