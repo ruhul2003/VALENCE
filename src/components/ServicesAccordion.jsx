@@ -1,8 +1,11 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowDown, ArrowUpRight } from "lucide-react";
+
+const MotionLink = motion.create(Link);
 
 export default function ServicesAccordion({ onOpenContact }) {
   const [openIndex, setOpenIndex] = useState(0);
@@ -99,15 +102,15 @@ export default function ServicesAccordion({ onOpenContact }) {
             </p>
 
             <div className="pt-4">
-              <motion.button
+              <MotionLink
+                href="/contact"
                 whileHover={{ scale: 1.04 }}
                 whileTap={{ scale: 0.96 }}
-                onClick={onOpenContact}
-                className="group rounded-full bg-black text-white hover:bg-neutral-800 px-7 py-4 text-sm font-semibold flex items-center gap-3 transition-all duration-300 shadow-md cursor-pointer"
+                className="group inline-flex items-center gap-3 rounded-full bg-black text-white hover:bg-neutral-800 px-7 py-4 text-sm font-semibold transition-all duration-300 shadow-md cursor-pointer"
               >
                 <span>Schedule Discovery Call</span>
                 <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-              </motion.button>
+              </MotionLink>
             </div>
           </motion.div>
 

@@ -50,12 +50,12 @@ export default function Footer({ onOpenContact }) {
             </h4>
             <ul className="space-y-2.5 text-sm text-neutral-600">
               {[
-                { label: "Featured Projects", href: "#projects" },
-                { label: "About Valence", href: "#about" },
-                { label: "Core Services", href: "#services" },
-                { label: "AI Architecture", href: "#ai-excellence" },
-                { label: "Client Reviews", href: "#testimonials" },
-                { label: "FAQ & Pricing", href: "#faq" },
+                { label: "Featured Projects", href: "/projects" },
+                { label: "About Valence", href: "/about" },
+                { label: "Core Services", href: "/services" },
+                { label: "AI Architecture", href: "/ai-excellence" },
+                { label: "Client Reviews", href: "/testimonials" },
+                { label: "FAQ & Pricing", href: "/faq" },
               ].map((link) => (
                 <li key={link.label}>
                   <MotionLink
@@ -119,14 +119,14 @@ export default function Footer({ onOpenContact }) {
               resilient, performant, human-centered digital products for future scale.
             </p>
 
-            <motion.button
+            <MotionLink
+              href="/contact"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={onOpenContact}
-              className="rounded-full bg-black text-white hover:bg-neutral-800 px-6 py-3 text-xs font-bold uppercase tracking-wider transition-colors shadow-sm cursor-pointer"
+              className="inline-block rounded-full bg-black text-white hover:bg-neutral-800 px-6 py-3 text-xs font-bold uppercase tracking-wider transition-colors shadow-sm cursor-pointer"
             >
               Get in touch
-            </motion.button>
+            </MotionLink>
           </div>
 
         </div>
@@ -143,10 +143,10 @@ export default function Footer({ onOpenContact }) {
           </div>
 
           <div className="flex items-center gap-6">
-            <Link href="#hero" className="hover:text-black transition-colors">
+            <Link href="/privacy-policy" className="hover:text-black transition-colors">
               Privacy Policy
             </Link>
-            <Link href="#hero" className="hover:text-black transition-colors">
+            <Link href="/terms-of-service" className="hover:text-black transition-colors">
               Terms of Service
             </Link>
             <motion.button

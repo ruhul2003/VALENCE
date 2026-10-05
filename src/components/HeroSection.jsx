@@ -1,8 +1,11 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowUpRight, Code2 } from "lucide-react";
+
+const MotionLink = motion.create(Link);
 
 export default function HeroSection({ onOpenContact }) {
   return (
@@ -94,26 +97,26 @@ export default function HeroSection({ onOpenContact }) {
               transition={{ duration: 0.6, delay: 0.5 }}
               className="flex items-center gap-3 pt-2"
             >
-              <motion.button
+              <MotionLink
+                href="/contact"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.96 }}
                 transition={{ type: "spring", stiffness: 400, damping: 20 }}
-                onClick={onOpenContact}
                 className="group relative h-[54px] px-8 rounded-full bg-white text-black font-semibold text-[15px] hover:bg-neutral-100 transition-colors shadow-xl hover:shadow-cyan-500/20 flex items-center gap-2 cursor-pointer"
               >
                 <span>Book Free Consultation</span>
-              </motion.button>
+              </MotionLink>
 
-              <motion.button
+              <MotionLink
+                href="/contact"
                 whileHover={{ scale: 1.1, rotate: 5 }}
                 whileTap={{ scale: 0.92 }}
                 transition={{ type: "spring", stiffness: 400, damping: 15 }}
-                onClick={onOpenContact}
                 aria-label="Direct Consultation Link"
                 className="group w-[54px] h-[54px] rounded-full bg-white text-black hover:bg-neutral-100 flex items-center justify-center transition-colors shadow-xl hover:shadow-cyan-500/20 cursor-pointer"
               >
                 <ArrowUpRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-              </motion.button>
+              </MotionLink>
             </motion.div>
           </div>
 

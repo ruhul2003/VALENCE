@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Menu, X } from "lucide-react";
 
@@ -10,6 +11,7 @@ const MotionLink = motion.create(Link);
 export default function Navbar({ onOpenContact }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,14 +25,17 @@ export default function Navbar({ onOpenContact }) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const isHomePage = pathname === "/";
+  const isSolid = scrolled || !isHomePage;
+
   const navLinks = [
-    { label: "Home", href: "#hero" },
-    { label: "About", href: "#about" },
-    { label: "Service", href: "#services" },
-    { label: "AI Excellence", href: "#ai-excellence" },
-    { label: "Projects", href: "#projects" },
-    { label: "Testimonials", href: "#testimonials" },
-    { label: "FAQ", href: "#faq" },
+    { label: "Home", href: "/" },
+    { label: "About", href: "/about" },
+    { label: "Service", href: "/services" },
+    { label: "AI Excellence", href: "/ai-excellence" },
+    { label: "Projects", href: "/projects" },
+    { label: "Testimonials", href: "/testimonials" },
+    { label: "FAQ", href: "/faq" },
   ];
 
   return (
@@ -39,7 +44,7 @@ export default function Navbar({ onOpenContact }) {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
+        isSolid
           ? "bg-white/85 backdrop-blur-xl border-b border-black/5 py-4 shadow-sm"
           : "bg-transparent py-6"
       }`}
@@ -47,7 +52,7 @@ export default function Navbar({ onOpenContact }) {
       <div className="w-[95%] mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         {/* Brand Logo */}
         <MotionLink
-          href="#hero"
+          href="/"
           whileHover={{ scale: 1.03 }}
           whileTap={{ scale: 0.98 }}
           className="flex items-center gap-2 group cursor-pointer"
@@ -55,14 +60,14 @@ export default function Navbar({ onOpenContact }) {
           <div className="flex items-center tracking-tighter">
             <span
               className={`font-black italic text-xl mr-1 tracking-widest transition-colors ${
-                scrolled ? "text-black" : "text-white"
+                isSolid ? "text-black" : "text-white"
               }`}
             >
               ///
             </span>
             <span
               className={`font-extrabold text-2xl tracking-[0.18em] transition-colors ${
-                scrolled ? "text-black" : "text-white"
+                isSolid ? "text-black" : "text-white"
               }`}
             >
               VALENCE
@@ -72,41 +77,52 @@ export default function Navbar({ onOpenContact }) {
 
         {/* Desktop Nav Links */}
         <nav className="hidden md:flex items-center space-x-8">
-          {navLinks.map((link) => (
-            <MotionLink
-              key={link.label}
-              href={link.href}
-              whileHover={{ y: -2 }}
-              whileTap={{ y: 0 }}
-              transition={{ type: "spring", stiffness: 400, damping: 17 }}
-              className={`text-[15px] font-medium transition-colors tracking-wide relative group py-1 ${
-                scrolled
-                  ? "text-gray-700 hover:text-black"
-                  : "text-white/80 hover:text-white"
-              }`}
-            >
-              {link.label}
-              <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-gradient-to-r from-blue-500 to-cyan-400 group-hover:w-full transition-all duration-300 rounded-full" />
-            </MotionLink>
-          ))}
+          {navLinks.map((link) => {
+            const isActive = pathname === link.href;
+            return (
+              <MotionLink
+                key={link.label}
+                href={link.href}
+                whileHover={{ y: -2 }}
+                whileTap={{ y: 0 }}
+                transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                className={`text-[15px] font-medium transition-colors tracking-wide relative group py-1 ${
+                  isActive
+                    ? isSolid
+                      ? "text-black font-semibold"
+                      : "text-white font-semibold"
+                    : isSolid
+                    ? "text-gray-700 hover:text-black"
+                    : "text-white/80 hover:text-white"
+                }`}
+              >
+                {link.label}
+                <span
+                  className={`absolute -bottom-1 left-0 h-[2px] bg-gradient-to-r from-blue-500 to-cyan-400 transition-all duration-300 rounded-full ${
+                    isActive ? "w-full" : "w-0 group-hover:w-full"
+                  }`}
+                />
+              </MotionLink>
+            );
+          })}
         </nav>
 
         {/* Right CTA Button */}
         <div className="hidden md:flex items-center">
-          <motion.button
+          <MotionLink
+            href="/contact"
             whileHover={{ scale: 1.05, y: -1 }}
             whileTap={{ scale: 0.96 }}
             transition={{ type: "spring", stiffness: 400, damping: 20 }}
-            onClick={onOpenContact}
             className={`group rounded-full px-7 h-[44px] lg:h-[48px] flex items-center gap-3 text-[14px] font-semibold transition-all duration-300 cursor-pointer ${
-              scrolled
+              isSolid
                 ? "bg-black text-white hover:bg-neutral-800 shadow-md hover:shadow-lg"
                 : "bg-white text-black hover:bg-neutral-100 shadow-lg"
             }`}
           >
             <span>Contact Us</span>
             <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-          </motion.button>
+          </MotionLink>
         </div>
 
         {/* Mobile Hamburger Toggle */}
@@ -114,7 +130,7 @@ export default function Navbar({ onOpenContact }) {
           whileTap={{ scale: 0.9 }}
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           className={`md:hidden p-2 rounded-lg transition-colors cursor-pointer ${
-            scrolled ? "text-black" : "text-white"
+            isSolid ? "text-black" : "text-white"
           }`}
           aria-label="Toggle Navigation Menu"
         >
@@ -141,22 +157,22 @@ export default function Navbar({ onOpenContact }) {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: idx * 0.04 }}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="text-base font-medium text-gray-800 hover:text-black py-2 border-b border-gray-100"
+                  className={`text-base font-medium py-2 border-b border-gray-100 transition-colors ${
+                    pathname === link.href ? "text-black font-bold" : "text-gray-800 hover:text-black"
+                  }`}
                 >
                   {link.label}
                 </MotionLink>
               ))}
-              <motion.button
+              <MotionLink
+                href="/contact"
                 whileTap={{ scale: 0.97 }}
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  onOpenContact();
-                }}
+                onClick={() => setMobileMenuOpen(false)}
                 className="mt-4 w-full bg-black text-white rounded-full py-3.5 px-6 font-semibold flex items-center justify-center gap-2 hover:bg-neutral-800 transition-colors"
               >
                 <span>Contact Us</span>
                 <ArrowRight className="w-4 h-4" />
-              </motion.button>
+              </MotionLink>
             </div>
           </motion.div>
         )}
