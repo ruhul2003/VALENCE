@@ -65,10 +65,10 @@ export default function HeroSection({ onOpenContact }) {
               animate={{ opacity: 1, y: 0 }}
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/25 text-white/90 shadow-lg text-[13px] sm:text-[14px] font-medium tracking-wide cursor-default"
+              className="inline-flex items-center gap-2.5 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/25 text-white/90 shadow-lg text-xs sm:text-[13px] font-medium tracking-wide cursor-default"
             >
-              <span className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center text-white">
-                <Code2 className="w-3 h-3" />
+              <span className="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-white/20 flex items-center justify-center text-white">
+                <Code2 className="w-2.5 h-2.5 sm:w-3 sm:h-3" />
               </span>
               <span>Innovating the future of IT</span>
             </motion.div>
@@ -78,7 +78,7 @@ export default function HeroSection({ onOpenContact }) {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-[72px] xl:text-[82px] font-extrabold text-white tracking-tight uppercase leading-[1.04] max-w-5xl"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-[54px] xl:text-[62px] font-extrabold text-white tracking-tight uppercase leading-[1.08] max-w-4xl"
             >
               EMPOWERING YOUR BUSINESS<br />
               WITH SMART IT SOLUTIONS
@@ -89,7 +89,7 @@ export default function HeroSection({ onOpenContact }) {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
-              className="text-base sm:text-lg md:text-xl text-neutral-200/90 font-normal leading-relaxed max-w-2xl"
+              className="text-sm sm:text-base md:text-[17px] text-neutral-200/90 font-normal leading-relaxed max-w-xl"
             >
               We help businesses reduce costs, scale faster, and stay secure with
               end-to-end managed IT services, cloud solutions, and AI-driven
@@ -108,7 +108,7 @@ export default function HeroSection({ onOpenContact }) {
                 whileHover={{ scale: 1.04, y: -2 }}
                 whileTap={{ scale: 0.96 }}
                 transition={{ type: "spring", stiffness: 400, damping: 20 }}
-                className="group relative h-[52px] px-8 rounded-full bg-white text-black font-semibold text-[15px] hover:bg-neutral-100 dark:hover:bg-neutral-200 transition-colors shadow-xl flex items-center justify-center cursor-pointer"
+                className="group relative h-[46px] sm:h-[48px] px-6 sm:px-7 rounded-full bg-white text-black font-semibold text-xs sm:text-sm hover:bg-neutral-100 dark:hover:bg-neutral-200 transition-colors shadow-xl flex items-center justify-center cursor-pointer"
               >
                 <span>Book Free Consultation</span>
               </MotionLink>
@@ -119,9 +119,9 @@ export default function HeroSection({ onOpenContact }) {
                 whileTap={{ scale: 0.93 }}
                 transition={{ type: "spring", stiffness: 400, damping: 16 }}
                 aria-label="Direct Consultation Link"
-                className="group w-[52px] h-[52px] rounded-full bg-white text-black hover:bg-neutral-100 dark:hover:bg-neutral-200 flex items-center justify-center transition-colors shadow-xl cursor-pointer"
+                className="group w-[46px] h-[46px] sm:w-[48px] sm:h-[48px] rounded-full bg-white text-black hover:bg-neutral-100 dark:hover:bg-neutral-200 flex items-center justify-center transition-colors shadow-xl cursor-pointer"
               >
-                <ArrowUpRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </MotionLink>
             </motion.div>
           </div>
@@ -157,11 +157,11 @@ export default function HeroSection({ onOpenContact }) {
 
               {/* Card Meta Content */}
               <div className="space-y-1">
-                <h3 className="text-[13px] font-bold tracking-wider text-white uppercase flex items-center justify-between">
+                <h3 className="text-xs font-bold tracking-wider text-white uppercase flex items-center justify-between">
                   <span>AI-POWERED SOLUTIONS</span>
                   <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
                 </h3>
-                <p className="text-[13px] sm:text-[14px] font-normal text-neutral-200/90 tracking-wide">
+                <p className="text-xs sm:text-[13px] font-normal text-neutral-200/90 tracking-wide">
                   Smarter tech for future-ready brands.
                 </p>
               </div>
@@ -184,16 +184,16 @@ export default function HeroSection({ onOpenContact }) {
             transition={{ type: "spring", stiffness: 400, damping: 20 }}
             className="flex items-baseline gap-3 cursor-default group"
           >
-            <span className="text-5xl sm:text-6xl lg:text-7xl font-light tracking-tight text-white group-hover:text-cyan-300 transition-colors">
+            <span className="text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight text-white group-hover:text-cyan-300 transition-colors">
               150+
             </span>
-            <span className="text-xs sm:text-sm text-neutral-300 uppercase tracking-wider max-w-[130px] leading-tight">
+            <span className="text-[11px] sm:text-xs text-neutral-300 uppercase tracking-wider max-w-[120px] leading-tight">
               Global Brands<br />Served Worldwide
             </span>
           </motion.div>
 
           {/* Slash Divider */}
-          <span className="text-3xl sm:text-4xl text-neutral-500 font-extralight select-none">
+          <span className="text-2xl sm:text-3xl text-neutral-500 font-extralight select-none">
             /
           </span>
 
@@ -203,10 +203,10 @@ export default function HeroSection({ onOpenContact }) {
             transition={{ type: "spring", stiffness: 400, damping: 20 }}
             className="flex items-baseline gap-3 cursor-default group"
           >
-            <span className="text-5xl sm:text-6xl lg:text-7xl font-light tracking-tight text-white group-hover:text-cyan-300 transition-colors">
+            <span className="text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight text-white group-hover:text-cyan-300 transition-colors">
               99%
             </span>
-            <span className="text-xs sm:text-sm text-neutral-300 uppercase tracking-wider max-w-[130px] leading-tight">
+            <span className="text-[11px] sm:text-xs text-neutral-300 uppercase tracking-wider max-w-[120px] leading-tight">
               Client Satisfaction<br />Rate
             </span>
           </motion.div>
