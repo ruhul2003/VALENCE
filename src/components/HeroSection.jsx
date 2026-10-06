@@ -108,7 +108,7 @@ export default function HeroSection({ onOpenContact }) {
                 whileHover={{ scale: 1.04, y: -2 }}
                 whileTap={{ scale: 0.96 }}
                 transition={{ type: "spring", stiffness: 400, damping: 20 }}
-                className="group relative h-[52px] px-8 rounded-full bg-white text-black font-semibold text-[15px] hover:bg-neutral-100 transition-colors shadow-xl flex items-center justify-center cursor-pointer"
+                className="group relative h-[52px] px-8 rounded-full bg-white text-black font-semibold text-[15px] hover:bg-neutral-100 dark:hover:bg-neutral-200 transition-colors shadow-xl flex items-center justify-center cursor-pointer"
               >
                 <span>Book Free Consultation</span>
               </MotionLink>
@@ -119,7 +119,7 @@ export default function HeroSection({ onOpenContact }) {
                 whileTap={{ scale: 0.93 }}
                 transition={{ type: "spring", stiffness: 400, damping: 16 }}
                 aria-label="Direct Consultation Link"
-                className="group w-[52px] h-[52px] rounded-full bg-white text-black hover:bg-neutral-100 flex items-center justify-center transition-colors shadow-xl cursor-pointer"
+                className="group w-[52px] h-[52px] rounded-full bg-white text-black hover:bg-neutral-100 dark:hover:bg-neutral-200 flex items-center justify-center transition-colors shadow-xl cursor-pointer"
               >
                 <ArrowUpRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </MotionLink>
@@ -140,7 +140,7 @@ export default function HeroSection({ onOpenContact }) {
                 scale: { duration: 0.8, delay: 0.35, ease: [0.16, 1, 0.3, 1] },
                 y: { repeat: Infinity, duration: 6, ease: "easeInOut" },
               }}
-              className="w-full max-w-[380px] xl:max-w-[420px] rounded-3xl p-5 sm:p-6 bg-white/10 backdrop-blur-2xl border border-white/30 shadow-2xl transition-all duration-500 hover:border-white/45 hover:bg-white/15"
+              className="w-full max-w-[380px] xl:max-w-[420px] rounded-3xl p-5 sm:p-6 bg-white/10 dark:bg-black/40 backdrop-blur-2xl border border-white/30 dark:border-white/15 shadow-2xl transition-all duration-500 hover:border-white/45 dark:hover:border-cyan-400/40 hover:bg-white/15 dark:hover:bg-black/60"
             >
               {/* Inner 3D Image Container */}
               <div className="relative aspect-[4/3] w-full rounded-2xl overflow-hidden mb-4 border border-white/20 shadow-inner">
@@ -152,13 +152,14 @@ export default function HeroSection({ onOpenContact }) {
                   sizes="(max-width: 768px) 100vw, 420px"
                   className="object-cover object-center transition-transform duration-700 hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
               </div>
 
               {/* Card Meta Content */}
               <div className="space-y-1">
-                <h3 className="text-[13px] font-bold tracking-wider text-white uppercase">
-                  AI-POWERED SOLUTIONS
+                <h3 className="text-[13px] font-bold tracking-wider text-white uppercase flex items-center justify-between">
+                  <span>AI-POWERED SOLUTIONS</span>
+                  <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
                 </h3>
                 <p className="text-[13px] sm:text-[14px] font-normal text-neutral-200/90 tracking-wide">
                   Smarter tech for future-ready brands.
