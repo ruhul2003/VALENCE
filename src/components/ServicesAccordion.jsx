@@ -74,7 +74,7 @@ export default function ServicesAccordion({ onOpenContact }) {
   ];
 
   return (
-    <section id="services" className="py-24 lg:py-36 bg-[#F8FAFC] border-t border-gray-200">
+    <section id="services" className="py-24 lg:py-36 bg-[#F8FAFC] dark:bg-[#080B11] border-t border-gray-200 dark:border-white/10 transition-colors duration-300">
       <div className="w-[95%] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 xl:gap-20 items-start">
           
@@ -86,16 +86,16 @@ export default function ServicesAccordion({ onOpenContact }) {
             transition={{ duration: 0.6 }}
             className="lg:col-span-4 lg:sticky lg:top-32 space-y-6"
           >
-            <div className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.2em] text-neutral-500 uppercase">
-              <span className="w-1.5 h-1.5 rounded-full bg-black" />
+            <div className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.2em] text-neutral-500 dark:text-neutral-400 uppercase">
+              <span className="w-1.5 h-1.5 rounded-full bg-black dark:bg-cyan-400" />
               <span>SERVICES</span>
             </div>
 
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold uppercase tracking-tight text-neutral-950 leading-[1.08]">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold uppercase tracking-tight text-neutral-950 dark:text-white leading-[1.08]">
               ENGINEERED FOR IMPACT
             </h2>
 
-            <p className="text-sm sm:text-base lg:text-lg text-neutral-600 leading-relaxed font-normal">
+            <p className="text-sm sm:text-base lg:text-lg text-neutral-600 dark:text-neutral-300 leading-relaxed font-normal">
               We partner with visionary founders and enterprise leaders to build
               bulletproof software products. Every solution is delivered with
               exhaustive code reviews, test suites, and transparent sprint velocity.
@@ -106,7 +106,7 @@ export default function ServicesAccordion({ onOpenContact }) {
                 href="/contact"
                 whileHover={{ scale: 1.04 }}
                 whileTap={{ scale: 0.96 }}
-                className="group inline-flex items-center gap-3 rounded-full bg-black text-white hover:bg-neutral-800 px-7 py-4 text-sm font-semibold transition-all duration-300 shadow-md cursor-pointer"
+                className="group inline-flex items-center gap-3 rounded-full bg-black text-white hover:bg-neutral-800 dark:bg-white dark:text-black dark:hover:bg-neutral-200 px-7 py-4 text-sm font-semibold transition-all duration-300 shadow-md cursor-pointer"
               >
                 <span>Schedule Discovery Call</span>
                 <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -115,13 +115,13 @@ export default function ServicesAccordion({ onOpenContact }) {
           </motion.div>
 
           {/* Right Column: Hairline Dividers & Expandable Accordion (Wilbur Style) */}
-          <div className="lg:col-span-8 border-t border-neutral-900">
+          <div className="lg:col-span-8 border-t border-neutral-900 dark:border-white/15">
             {capabilities.map((cap, index) => {
               const isOpen = openIndex === index;
               return (
                 <div
                   key={cap.title}
-                  className="border-b border-neutral-900 transition-colors duration-300"
+                  className="border-b border-neutral-900 dark:border-white/15 transition-colors duration-300"
                 >
                   {/* Header Row */}
                   <button
@@ -135,19 +135,19 @@ export default function ServicesAccordion({ onOpenContact }) {
                           className="w-2.5 h-2.5 rounded-full bg-cyan-500 shadow-sm shadow-cyan-400"
                         />
                       )}
-                      <h3 className="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-bold uppercase tracking-tight text-neutral-950 pr-6 group-hover:text-neutral-700 transition-colors">
+                      <h3 className="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-bold uppercase tracking-tight text-neutral-950 dark:text-white pr-6 group-hover:text-neutral-700 dark:group-hover:text-cyan-300 transition-colors">
                         {cap.title}
                       </h3>
                     </div>
                     <motion.div
                       animate={{ rotate: isOpen ? 45 : 0 }}
                       transition={{ type: "spring", stiffness: 350, damping: 20 }}
-                      className="w-11 h-11 rounded-full border border-neutral-300 group-hover:border-black flex items-center justify-center shrink-0 transition-colors"
+                      className="w-11 h-11 rounded-full border border-neutral-300 dark:border-white/20 group-hover:border-black dark:group-hover:border-cyan-400 flex items-center justify-center shrink-0 transition-colors"
                     >
                       {isOpen ? (
-                        <ArrowUpRight className="w-5 h-5 text-black" />
+                        <ArrowUpRight className="w-5 h-5 text-black dark:text-white" />
                       ) : (
-                        <ArrowDown className="w-5 h-5 text-neutral-600 group-hover:text-black transition-colors" />
+                        <ArrowDown className="w-5 h-5 text-neutral-600 dark:text-neutral-300 group-hover:text-black dark:group-hover:text-cyan-300 transition-colors" />
                       )}
                     </motion.div>
                   </button>
@@ -163,7 +163,7 @@ export default function ServicesAccordion({ onOpenContact }) {
                         className="overflow-hidden"
                       >
                         <div className="pb-8 pt-2 space-y-6">
-                          <p className="text-base sm:text-lg text-neutral-700 leading-relaxed max-w-4xl">
+                          <p className="text-base sm:text-lg text-neutral-700 dark:text-neutral-300 leading-relaxed max-w-4xl">
                             {cap.description}
                           </p>
 
@@ -174,7 +174,7 @@ export default function ServicesAccordion({ onOpenContact }) {
                                 key={t}
                                 whileHover={{ scale: 1.06, y: -2 }}
                                 transition={{ type: "spring", stiffness: 400, damping: 20 }}
-                                className="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white border border-gray-300 text-neutral-800 shadow-xs cursor-default"
+                                className="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white dark:bg-[#0E131F] border border-gray-300 dark:border-white/15 text-neutral-800 dark:text-neutral-200 shadow-xs cursor-default"
                               >
                                 {t}
                               </motion.span>
@@ -187,7 +187,7 @@ export default function ServicesAccordion({ onOpenContact }) {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.4, delay: 0.1 }}
                             whileHover={{ scale: 1.01 }}
-                            className="rounded-2xl p-6 sm:p-8 bg-neutral-900 text-white border border-neutral-800 shadow-lg relative overflow-hidden group/card"
+                            className="rounded-2xl p-6 sm:p-8 bg-neutral-900 dark:bg-[#0E131F] text-white border border-neutral-800 dark:border-white/10 shadow-lg relative overflow-hidden group/card"
                           >
                             <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none group-hover/card:bg-cyan-500/15 transition-colors" />
                             <div className="relative z-10 flex flex-wrap items-center justify-between gap-4 mb-4">
