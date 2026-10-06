@@ -23,7 +23,7 @@ export default function CultureSection() {
   ];
 
   return (
-    <section className="py-24 lg:py-36 bg-white border-t border-gray-100">
+    <section className="py-24 lg:py-36 bg-white dark:bg-[#080B11] border-t border-gray-100 dark:border-white/10 transition-colors duration-300">
       <div className="w-[95%] mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 25 }}
@@ -32,11 +32,11 @@ export default function CultureSection() {
           transition={{ duration: 0.6 }}
           className="space-y-4 mb-16 lg:mb-20"
         >
-          <div className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.2em] text-neutral-500 uppercase">
-            <span className="w-1.5 h-1.5 rounded-full bg-black" />
+          <div className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.2em] text-neutral-500 dark:text-neutral-400 uppercase">
+            <span className="w-1.5 h-1.5 rounded-full bg-black dark:bg-cyan-400" />
             <span>CULTURE & LIFE AT VALENCE</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold uppercase tracking-tight text-neutral-950">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold uppercase tracking-tight text-neutral-950 dark:text-white">
             ENGINEERING CULTURE WITHOUT BORDERS.
           </h2>
         </motion.div>
@@ -51,7 +51,7 @@ export default function CultureSection() {
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: index * 0.15 }}
               whileHover={{ y: -8, scale: 1.02 }}
-              className="group relative aspect-[16/11] lg:aspect-[16/10] rounded-3xl overflow-hidden bg-neutral-900 shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer"
+              className="group relative aspect-[16/11] lg:aspect-[16/10] rounded-3xl overflow-hidden bg-neutral-900 border border-transparent dark:border-white/10 shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer"
             >
               <Image
                 src={item.image}
@@ -80,7 +80,7 @@ export default function CultureSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-6 p-6 sm:p-8 rounded-3xl bg-[#F8FAFC] border border-gray-200/80"
+          className="grid grid-cols-2 md:grid-cols-4 gap-6 p-6 sm:p-8 rounded-3xl bg-[#F8FAFC] dark:bg-[#0E131F] border border-gray-200/80 dark:border-white/10"
         >
           {[
             { metric: "100%", label: "Remote-First Squads" },
@@ -93,10 +93,10 @@ export default function CultureSection() {
               whileHover={{ scale: 1.04 }}
               className="flex flex-col space-y-1 text-center sm:text-left cursor-default"
             >
-              <span className="text-2xl sm:text-3xl font-extrabold text-neutral-950">
+              <span className="text-2xl sm:text-3xl font-extrabold text-neutral-950 dark:text-white">
                 {stat.metric}
               </span>
-              <span className="text-xs font-medium text-neutral-500 uppercase tracking-wide">
+              <span className="text-xs font-medium text-neutral-500 dark:text-neutral-400 uppercase tracking-wide">
                 {stat.label}
               </span>
             </motion.div>
