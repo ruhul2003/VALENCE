@@ -6,7 +6,7 @@ import { CheckCircle2, ShieldCheck, Zap } from "lucide-react";
 
 export default function AboutSection() {
   return (
-    <section id="about" className="py-24 lg:py-36 bg-[#F8FAFC]">
+    <section id="about" className="py-24 lg:py-36 bg-[#F8FAFC] dark:bg-[#080B11] transition-colors duration-300">
       <div className="w-[95%] mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header: Wilbur Split Layout */}
@@ -19,38 +19,38 @@ export default function AboutSection() {
         >
           {/* Left Column: Tag and Main Headline */}
           <div className="lg:col-span-7 space-y-6">
-            <div className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.2em] text-neutral-500 uppercase">
-              <span className="w-1.5 h-1.5 rounded-full bg-black" />
+            <div className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.2em] text-neutral-500 dark:text-neutral-400 uppercase">
+              <span className="w-1.5 h-1.5 rounded-full bg-black dark:bg-cyan-400" />
               <span>ABOUT US</span>
             </div>
 
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold tracking-tight uppercase leading-[1.1] text-neutral-950">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold tracking-tight uppercase leading-[1.1] text-neutral-950 dark:text-white">
               BUILDING SCALABLE DIGITAL SOLUTIONS FOR FUTURE-FOCUSED ENTERPRISES
             </h2>
           </div>
 
           {/* Right Column: Narrative statement */}
           <div className="lg:col-span-5 flex flex-col justify-between pt-2 lg:pt-8 space-y-6">
-            <p className="text-sm sm:text-base lg:text-lg font-medium tracking-wide uppercase leading-relaxed text-neutral-600">
+            <p className="text-sm sm:text-base lg:text-lg font-medium tracking-wide uppercase leading-relaxed text-neutral-600 dark:text-neutral-300">
               WE BLEND ENGINEERING PRECISION, ARTIFICIAL INTELLIGENCE, AND
               CLOUD ARCHITECTURE TO BUILD DIGITAL PLATFORMS THAT DRIVE MEASURABLE
               EFFICIENCY AND COMPOUNDING BUSINESS MOMENTUM.
             </p>
 
-            <div className="grid grid-cols-2 gap-8 pt-6 border-t border-gray-200">
+            <div className="grid grid-cols-2 gap-8 pt-6 border-t border-gray-200 dark:border-neutral-800">
               <motion.div whileHover={{ y: -2 }} transition={{ duration: 0.2 }}>
-                <span className="text-3xl lg:text-4xl font-bold text-neutral-900 block">
+                <span className="text-3xl lg:text-4xl font-bold text-neutral-900 dark:text-white block">
                   12+ Yrs
                 </span>
-                <span className="text-xs text-neutral-500 uppercase tracking-wider font-semibold">
+                <span className="text-xs text-neutral-500 dark:text-neutral-400 uppercase tracking-wider font-semibold">
                   Engineering Track Record
                 </span>
               </motion.div>
               <motion.div whileHover={{ y: -2 }} transition={{ duration: 0.2 }}>
-                <span className="text-3xl lg:text-4xl font-bold text-neutral-900 block">
+                <span className="text-3xl lg:text-4xl font-bold text-neutral-900 dark:text-white block">
                   45+
                 </span>
-                <span className="text-xs text-neutral-500 uppercase tracking-wider font-semibold">
+                <span className="text-xs text-neutral-500 dark:text-neutral-400 uppercase tracking-wider font-semibold">
                   Principal Architects & Devs
                 </span>
               </motion.div>
