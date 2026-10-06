@@ -36,7 +36,7 @@ export default function FaqSection() {
   ];
 
   return (
-    <section id="faq" className="py-24 lg:py-36 bg-[#F8FAFC] border-t border-gray-200">
+    <section id="faq" className="py-24 lg:py-36 bg-[#F8FAFC] dark:bg-[#080B11] border-t border-gray-200 dark:border-white/10 transition-colors duration-300">
       <div className="w-[95%] mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
@@ -47,11 +47,11 @@ export default function FaqSection() {
           transition={{ duration: 0.6 }}
           className="space-y-4 mb-16 lg:mb-20"
         >
-          <div className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.2em] text-neutral-500 uppercase">
-            <span className="w-1.5 h-1.5 rounded-full bg-black" />
+          <div className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.2em] text-neutral-500 dark:text-neutral-400 uppercase">
+            <span className="w-1.5 h-1.5 rounded-full bg-black dark:bg-cyan-400" />
             <span>FAQ</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold uppercase tracking-tight text-neutral-950">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold uppercase tracking-tight text-neutral-950 dark:text-white">
             FREQUENTLY ASKED QUESTIONS.
           </h2>
         </motion.div>
@@ -70,28 +70,30 @@ export default function FaqSection() {
                 whileHover={{ y: -2 }}
                 className={`rounded-2xl transition-all duration-300 border relative overflow-hidden ${
                   isOpen
-                    ? "bg-white border-black/30 shadow-lg"
-                    : "bg-white/60 border-gray-200 hover:border-gray-300 hover:bg-white"
+                    ? "bg-white dark:bg-[#0E131F] border-black/30 dark:border-cyan-400/40 shadow-lg dark:shadow-[0_0_25px_-5px_rgba(34,211,238,0.15)]"
+                    : "bg-white/60 dark:bg-[#0B0F17]/60 border-gray-200 dark:border-white/10 hover:border-gray-300 dark:hover:border-white/20 hover:bg-white dark:hover:bg-[#0E131F]"
                 }`}
               >
                 {isOpen && (
                   <motion.div
                     layoutId="activeFaqBar"
-                    className="absolute left-0 top-0 bottom-0 w-1.5 bg-black"
+                    className="absolute left-0 top-0 bottom-0 w-1.5 bg-black dark:bg-cyan-400"
                   />
                 )}
                 <button
                   onClick={() => setOpenIndex(isOpen ? -1 : idx)}
                   className="w-full py-6 sm:py-7 px-6 sm:px-8 flex items-center justify-between text-left group cursor-pointer"
                 >
-                  <span className="text-base sm:text-lg lg:text-xl font-bold text-neutral-950 pr-4 group-hover:text-neutral-700 transition-colors">
+                  <span className="text-base sm:text-lg lg:text-xl font-bold text-neutral-950 dark:text-white pr-4 group-hover:text-neutral-700 dark:group-hover:text-cyan-300 transition-colors">
                     {faq.question}
                   </span>
                   <motion.div
                     animate={{ rotate: isOpen ? 180 : 0 }}
                     transition={{ type: "spring", stiffness: 400, damping: 20 }}
                     className={`w-9 h-9 rounded-full flex items-center justify-center shrink-0 transition-colors ${
-                      isOpen ? "bg-black text-white" : "bg-gray-100 text-neutral-700 group-hover:bg-gray-200"
+                      isOpen
+                        ? "bg-black text-white dark:bg-cyan-400 dark:text-black"
+                        : "bg-gray-100 text-neutral-700 dark:bg-white/10 dark:text-neutral-200 group-hover:bg-gray-200 dark:group-hover:bg-white/20"
                     }`}
                   >
                     {isOpen ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
@@ -107,7 +109,7 @@ export default function FaqSection() {
                       transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
                       className="overflow-hidden"
                     >
-                      <div className="px-6 sm:px-8 pb-7 text-sm sm:text-base text-neutral-600 leading-relaxed font-normal">
+                      <div className="px-6 sm:px-8 pb-7 text-sm sm:text-base text-neutral-600 dark:text-neutral-300 leading-relaxed font-normal">
                         <p>{faq.answer}</p>
                       </div>
                     </motion.div>
