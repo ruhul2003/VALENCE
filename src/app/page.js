@@ -41,7 +41,7 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen relative flex flex-col bg-[#F8FAFC]">
+    <main className="min-h-screen relative flex flex-col bg-[#F8FAFC] dark:bg-[#080B11] transition-colors duration-300">
       {/* Dynamic Scroll Progress Bar */}
       <motion.div
         className="fixed top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-blue-600 via-indigo-500 to-cyan-400 origin-left z-50 pointer-events-none"
@@ -94,13 +94,13 @@ export default function Home() {
           whileTap={{ scale: 0.92 }}
           onClick={handleOpenModal}
           aria-label="Open Quick Consultation"
-          className="group relative w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-white text-black shadow-2xl border border-gray-200/80 hover:border-black/30 flex items-center justify-center transition-shadow duration-300 cursor-pointer"
+          className="group relative w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-white dark:bg-[#0E131F] text-black dark:text-white shadow-2xl border border-gray-200/80 dark:border-white/15 hover:border-black/30 dark:hover:border-cyan-400/40 flex items-center justify-center transition-all duration-300 cursor-pointer"
         >
           {/* Subtle pulse ring */}
-          <span className="absolute -inset-1 rounded-full bg-black/5 animate-ping pointer-events-none" />
+          <span className="absolute -inset-1 rounded-full bg-black/5 dark:bg-cyan-400/20 animate-ping pointer-events-none" />
           
           <div className="flex items-center tracking-tighter transition-transform group-hover:scale-110">
-            <span className="font-black italic text-lg sm:text-xl text-black">
+            <span className="font-black italic text-lg sm:text-xl text-black dark:text-cyan-300">
               ///
             </span>
           </div>
