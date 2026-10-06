@@ -76,14 +76,14 @@ export default function TestimonialsSection() {
   return (
     <section
       id="testimonials"
-      className="py-24 lg:py-36 bg-[#F8FAFC] relative overflow-hidden border-t border-gray-200"
+      className="py-24 lg:py-36 bg-[#F8FAFC] dark:bg-[#080B11] relative overflow-hidden border-t border-gray-200 dark:border-white/10 transition-colors duration-300"
     >
       {/* Background Orbit Ring with Continuous Gentle Rotation */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-40">
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-40 dark:opacity-20">
         <motion.div
           animate={{ rotate: 360 }}
           transition={{ repeat: Infinity, duration: 120, ease: "linear" }}
-          className="w-[900px] h-[900px] lg:w-[1300px] lg:h-[1300px] xl:w-[1450px] xl:h-[1450px] rounded-full border border-dashed border-neutral-400"
+          className="w-[900px] h-[900px] lg:w-[1300px] lg:h-[1300px] xl:w-[1450px] xl:h-[1450px] rounded-full border border-dashed border-neutral-400 dark:border-cyan-500/40"
         />
       </div>
 
@@ -98,10 +98,10 @@ export default function TestimonialsSection() {
             whileHover={{ scale: 1.15, y: -14 }}
             className="absolute left-[12%] top-2 flex flex-col items-center cursor-pointer"
           >
-            <span className="px-3.5 py-1.5 rounded-xl bg-black text-white text-[11px] font-bold tracking-wider shadow-lg mb-2">
+            <span className="px-3.5 py-1.5 rounded-xl bg-black dark:bg-white text-white dark:text-black text-[11px] font-bold tracking-wider shadow-lg mb-2">
               &quot;EXCEPTIONAL&quot;
             </span>
-            <div className="w-11 h-11 rounded-full overflow-hidden border-2 border-white shadow-md">
+            <div className="w-11 h-11 rounded-full overflow-hidden border-2 border-white dark:border-neutral-800 shadow-md">
               <img
                 src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80"
                 alt="Avatar"
@@ -117,10 +117,10 @@ export default function TestimonialsSection() {
             whileHover={{ scale: 1.15, y: -16 }}
             className="absolute right-[22%] -top-2 flex flex-col items-center cursor-pointer"
           >
-            <span className="px-3.5 py-1.5 rounded-xl bg-black text-white text-[11px] font-bold tracking-wider shadow-lg mb-2">
+            <span className="px-3.5 py-1.5 rounded-xl bg-black dark:bg-white text-white dark:text-black text-[11px] font-bold tracking-wider shadow-lg mb-2">
               &quot;BRILLIANT&quot;
             </span>
-            <div className="w-11 h-11 rounded-full overflow-hidden border-2 border-white shadow-md">
+            <div className="w-11 h-11 rounded-full overflow-hidden border-2 border-white dark:border-neutral-800 shadow-md">
               <img
                 src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop&q=80"
                 alt="Avatar"
@@ -136,10 +136,10 @@ export default function TestimonialsSection() {
             whileHover={{ scale: 1.15, y: -12 }}
             className="absolute right-[8%] top-16 flex flex-col items-center cursor-pointer"
           >
-            <span className="px-3.5 py-1.5 rounded-xl bg-black text-white text-[11px] font-bold tracking-wider shadow-lg mb-2">
+            <span className="px-3.5 py-1.5 rounded-xl bg-black dark:bg-white text-white dark:text-black text-[11px] font-bold tracking-wider shadow-lg mb-2">
               &quot;INCREDIBLE&quot;
             </span>
-            <div className="w-11 h-11 rounded-full overflow-hidden border-2 border-white shadow-md">
+            <div className="w-11 h-11 rounded-full overflow-hidden border-2 border-white dark:border-neutral-800 shadow-md">
               <img
                 src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&auto=format&fit=crop&q=80"
                 alt="Avatar"
@@ -157,11 +157,11 @@ export default function TestimonialsSection() {
           transition={{ duration: 0.6 }}
           className="text-center max-w-3xl mx-auto mb-16"
         >
-          <div className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.2em] text-neutral-500 uppercase mb-3">
-            <span className="w-1.5 h-1.5 rounded-full bg-black" />
+          <div className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.2em] text-neutral-500 dark:text-neutral-400 uppercase mb-3">
+            <span className="w-1.5 h-1.5 rounded-full bg-black dark:bg-cyan-400" />
             <span>TESTIMONIALS</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold uppercase tracking-tight text-neutral-950">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold uppercase tracking-tight text-neutral-950 dark:text-white">
             TRUSTED BY TECH EXECUTIVES GLOBALLY
           </h2>
         </motion.div>
@@ -180,7 +180,7 @@ export default function TestimonialsSection() {
                   animate="center"
                   exit="exit"
                   whileHover={{ y: -4 }}
-                  className="rounded-3xl p-8 sm:p-10 lg:p-12 bg-white border border-gray-200/90 shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col justify-between"
+                  className="rounded-3xl p-8 sm:p-10 lg:p-12 bg-white dark:bg-[#0E131F] border border-gray-200/90 dark:border-white/10 shadow-lg hover:shadow-2xl dark:hover:shadow-[0_0_35px_-5px_rgba(34,211,238,0.15)] dark:hover:border-cyan-400/40 transition-all duration-300 flex flex-col justify-between"
                 >
                   <div>
                     {/* Gold Stars */}
@@ -198,14 +198,14 @@ export default function TestimonialsSection() {
                     </div>
 
                     {/* Quote */}
-                    <p className="text-base sm:text-lg lg:text-xl text-neutral-800 leading-relaxed font-normal mb-8">
+                    <p className="text-base sm:text-lg lg:text-xl text-neutral-800 dark:text-neutral-200 leading-relaxed font-normal mb-8">
                       &quot;{item.quote}&quot;
                     </p>
                   </div>
 
                   {/* Author Info */}
-                  <div className="pt-6 border-t border-gray-100 flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-full overflow-hidden border border-gray-200 shrink-0">
+                  <div className="pt-6 border-t border-gray-100 dark:border-white/10 flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-full overflow-hidden border border-gray-200 dark:border-white/20 shrink-0">
                       <img
                         src={item.avatar}
                         alt={item.author}
@@ -213,10 +213,10 @@ export default function TestimonialsSection() {
                       />
                     </div>
                     <div>
-                      <h4 className="text-base font-bold text-neutral-950">
+                      <h4 className="text-base font-bold text-neutral-950 dark:text-white">
                         {item.author}
                       </h4>
-                      <span className="text-xs text-neutral-500">
+                      <span className="text-xs text-neutral-500 dark:text-neutral-400">
                         {item.role}
                       </span>
                     </div>
@@ -234,7 +234,7 @@ export default function TestimonialsSection() {
             whileTap={{ scale: 0.92 }}
             onClick={prevSlide}
             aria-label="Previous testimonials"
-            className="w-14 h-12 rounded-full bg-white hover:bg-neutral-100 border border-gray-300 flex items-center justify-center text-black shadow-xs hover:shadow-md transition-all cursor-pointer"
+            className="w-14 h-12 rounded-full bg-white dark:bg-[#0E131F] hover:bg-neutral-100 dark:hover:bg-[#151c2e] border border-gray-300 dark:border-white/15 flex items-center justify-center text-black dark:text-white shadow-xs hover:shadow-md transition-all cursor-pointer"
           >
             <ArrowLeft className="w-5 h-5" />
           </motion.button>
@@ -243,7 +243,7 @@ export default function TestimonialsSection() {
             whileTap={{ scale: 0.92 }}
             onClick={nextSlide}
             aria-label="Next testimonials"
-            className="w-14 h-12 rounded-full bg-white hover:bg-neutral-100 border border-gray-300 flex items-center justify-center text-black shadow-xs hover:shadow-md transition-all cursor-pointer"
+            className="w-14 h-12 rounded-full bg-white dark:bg-[#0E131F] hover:bg-neutral-100 dark:hover:bg-[#151c2e] border border-gray-300 dark:border-white/15 flex items-center justify-center text-black dark:text-white shadow-xs hover:shadow-md transition-all cursor-pointer"
           >
             <ArrowRight className="w-5 h-5" />
           </motion.button>
