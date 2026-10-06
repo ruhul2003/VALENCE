@@ -20,11 +20,10 @@ export default function HeroSection({ onOpenContact }) {
           loop
           muted
           playsInline
-          preload="auto"
           poster="/assets/hero-glass.jpg"
           className="absolute inset-0 w-full h-full object-cover scale-105 pointer-events-none opacity-85"
         >
-          <source src="/assets/bg-video.mp4" type="video/mp4" />
+          <source src="/assets/hero-bg.mp4" type="video/mp4" />
         </video>
 
         {/* Studio Light Refraction & Subtle Vignette Overlay for Readability */}
