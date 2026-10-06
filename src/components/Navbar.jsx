@@ -133,7 +133,7 @@ export default function Navbar({ onOpenContact }) {
           whileTap={{ scale: 0.9 }}
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           className={`md:hidden p-2 rounded-lg transition-colors cursor-pointer ${
-            isSolid ? "text-black" : "text-white"
+            isSolid ? "text-black dark:text-white" : "text-white"
           }`}
           aria-label="Toggle Navigation Menu"
         >
@@ -149,7 +149,7 @@ export default function Navbar({ onOpenContact }) {
             animate={{ opacity: 1, height: "auto", y: 0 }}
             exit={{ opacity: 0, height: 0, y: -10 }}
             transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="md:hidden overflow-hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-2xl border-b border-black/10 px-6 py-6 shadow-2xl"
+            className="md:hidden overflow-hidden absolute top-full left-0 right-0 bg-white/95 dark:bg-[#080B11]/95 backdrop-blur-2xl border-b border-black/10 dark:border-white/10 px-6 py-6 shadow-2xl"
           >
             <div className="flex flex-col space-y-4">
               {navLinks.map((link, idx) => (
@@ -160,18 +160,26 @@ export default function Navbar({ onOpenContact }) {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: idx * 0.04 }}
                   onClick={() => setMobileMenuOpen(false)}
-                  className={`text-base font-medium py-2 border-b border-gray-100 transition-colors ${
-                    pathname === link.href ? "text-black font-bold" : "text-gray-800 hover:text-black"
+                  className={`text-base font-medium py-2 border-b border-gray-100 dark:border-neutral-800 transition-colors ${
+                    pathname === link.href
+                      ? "text-black dark:text-white font-bold"
+                      : "text-gray-800 dark:text-neutral-300 hover:text-black dark:hover:text-white"
                   }`}
                 >
                   {link.label}
                 </MotionLink>
               ))}
+
+              {/* Mobile Theme Toggle Switch */}
+              <div className="pt-2">
+                <ThemeToggle showLabel={true} isSolid={true} />
+              </div>
+
               <MotionLink
                 href="/contact"
                 whileTap={{ scale: 0.97 }}
                 onClick={() => setMobileMenuOpen(false)}
-                className="mt-4 w-full bg-black text-white rounded-full py-3.5 px-6 font-semibold flex items-center justify-center gap-2 hover:bg-neutral-800 transition-colors"
+                className="mt-3 w-full bg-black text-white hover:bg-neutral-800 dark:bg-white dark:text-black dark:hover:bg-neutral-200 rounded-full py-3.5 px-6 font-semibold flex items-center justify-center gap-2 transition-colors"
               >
                 <span>Contact Us</span>
                 <ArrowRight className="w-4 h-4" />
