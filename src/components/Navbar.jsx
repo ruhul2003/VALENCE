@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Menu, X } from "lucide-react";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const MotionLink = motion.create(Link);
 
@@ -45,7 +46,7 @@ export default function Navbar({ onOpenContact }) {
       transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isSolid
-          ? "bg-white/85 backdrop-blur-xl border-b border-black/5 py-4 shadow-sm"
+          ? "bg-white/85 dark:bg-[#080B11]/85 backdrop-blur-xl border-b border-black/5 dark:border-white/10 py-4 shadow-sm"
           : "bg-transparent py-6"
       }`}
     >
@@ -60,14 +61,14 @@ export default function Navbar({ onOpenContact }) {
           <div className="flex items-center tracking-tighter">
             <span
               className={`font-black italic text-xl mr-1 tracking-widest transition-colors ${
-                isSolid ? "text-black" : "text-white"
+                isSolid ? "text-black dark:text-white" : "text-white"
               }`}
             >
               ///
             </span>
             <span
               className={`font-extrabold text-2xl tracking-[0.18em] transition-colors ${
-                isSolid ? "text-black" : "text-white"
+                isSolid ? "text-black dark:text-white" : "text-white"
               }`}
             >
               VALENCE
@@ -89,10 +90,10 @@ export default function Navbar({ onOpenContact }) {
                 className={`text-[15px] font-medium transition-colors tracking-wide relative group py-1 ${
                   isActive
                     ? isSolid
-                      ? "text-black font-semibold"
+                      ? "text-black dark:text-white font-semibold"
                       : "text-white font-semibold"
                     : isSolid
-                    ? "text-gray-700 hover:text-black"
+                    ? "text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white"
                     : "text-white/80 hover:text-white"
                 }`}
               >
@@ -107,8 +108,10 @@ export default function Navbar({ onOpenContact }) {
           })}
         </nav>
 
-        {/* Right CTA Button */}
-        <div className="hidden md:flex items-center">
+        {/* Right CTA & Theme Toggle */}
+        <div className="hidden md:flex items-center space-x-3">
+          <ThemeToggle isSolid={isSolid} />
+          
           <MotionLink
             href="/contact"
             whileHover={{ scale: 1.05, y: -1 }}
@@ -116,7 +119,7 @@ export default function Navbar({ onOpenContact }) {
             transition={{ type: "spring", stiffness: 400, damping: 20 }}
             className={`group rounded-full px-7 h-[44px] lg:h-[48px] flex items-center gap-3 text-[14px] font-semibold transition-all duration-300 cursor-pointer ${
               isSolid
-                ? "bg-black text-white hover:bg-neutral-800 shadow-md hover:shadow-lg"
+                ? "bg-black text-white hover:bg-neutral-800 dark:bg-white dark:text-black dark:hover:bg-neutral-200 shadow-md hover:shadow-lg"
                 : "bg-white text-black hover:bg-neutral-100 shadow-lg"
             }`}
           >
