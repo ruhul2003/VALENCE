@@ -7,7 +7,7 @@ export default function AiExcellenceSection() {
   return (
     <section
       id="ai-excellence"
-      className="py-24 lg:py-36 bg-gradient-to-b from-[#F8FAFC] via-[#EDF4FA] to-[#F8FAFC] relative overflow-hidden border-t border-gray-200"
+      className="py-24 lg:py-36 bg-gradient-to-b from-[#F8FAFC] via-[#EDF4FA] to-[#F8FAFC] dark:from-[#080B11] dark:via-[#0c121d] dark:to-[#080B11] relative overflow-hidden border-t border-gray-200 dark:border-white/10 transition-colors duration-300"
     >
       <div className="w-[95%] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
@@ -19,13 +19,13 @@ export default function AiExcellenceSection() {
           transition={{ duration: 0.5 }}
           className="flex flex-wrap items-center justify-center gap-3 mb-6"
         >
-          <div className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.2em] text-neutral-500 uppercase">
-            <span className="w-1.5 h-1.5 rounded-full bg-cyan-600" />
+          <div className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.2em] text-neutral-500 dark:text-neutral-400 uppercase">
+            <span className="w-1.5 h-1.5 rounded-full bg-cyan-600 dark:bg-cyan-400" />
             <span>AI COGNITIVE ARCHITECTURE</span>
           </div>
           <motion.div
             whileHover={{ scale: 1.05 }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-[11px] font-semibold cursor-default"
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/40 text-emerald-800 dark:text-emerald-300 text-[11px] font-semibold cursor-default"
           >
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
             <span>Telemetry: 12.4ms latency</span>
@@ -39,7 +39,7 @@ export default function AiExcellenceSection() {
           transition={{ duration: 0.6 }}
           className="text-center max-w-4xl mx-auto mb-16 lg:mb-24"
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold uppercase tracking-tight text-neutral-950">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold uppercase tracking-tight text-neutral-950 dark:text-white">
             AUTONOMOUS COGNITION AT ENTERPRISE SCALE
           </h2>
         </motion.div>
@@ -54,15 +54,15 @@ export default function AiExcellenceSection() {
             viewport={{ once: true }}
             whileHover={{ scale: 1.05, y: -4 }}
             transition={{ type: "spring", stiffness: 350, damping: 20 }}
-            className="absolute top-0 left-0 max-w-[320px] xl:max-w-[360px] text-left space-y-2 p-4 sm:p-5 rounded-2xl transition-all duration-300 hover:bg-white/80 hover:shadow-xl hover:border-gray-200/80 border border-transparent cursor-pointer"
+            className="absolute top-0 left-0 max-w-[320px] xl:max-w-[360px] text-left space-y-2 p-4 sm:p-5 rounded-2xl transition-all duration-300 hover:bg-white/80 dark:hover:bg-[#0E131F]/90 hover:shadow-xl dark:hover:shadow-[0_0_30px_-5px_rgba(34,211,238,0.2)] hover:border-gray-200/80 dark:hover:border-white/15 border border-transparent cursor-pointer"
           >
-            <span className="text-xs font-bold tracking-[0.15em] text-cyan-700 uppercase block">
+            <span className="text-xs font-bold tracking-[0.15em] text-cyan-700 dark:text-cyan-400 uppercase block">
               MACHINE LEARNING
             </span>
-            <h3 className="text-xl sm:text-2xl lg:text-3xl font-extrabold uppercase tracking-tight text-neutral-950 leading-tight">
+            <h3 className="text-xl sm:text-2xl lg:text-3xl font-extrabold uppercase tracking-tight text-neutral-950 dark:text-white leading-tight">
               SELF-IMPROVING ALGORITHMS
             </h3>
-            <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed pt-1 font-normal">
+            <p className="text-xs sm:text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed pt-1 font-normal">
               Neural models that continuously calibrate based on telemetry, user intent, and operational outcomes.
             </p>
           </motion.div>
@@ -74,15 +74,15 @@ export default function AiExcellenceSection() {
             viewport={{ once: true }}
             whileHover={{ scale: 1.05, y: -4 }}
             transition={{ type: "spring", stiffness: 350, damping: 20 }}
-            className="absolute top-0 right-0 max-w-[320px] xl:max-w-[360px] text-right space-y-2 p-4 sm:p-5 rounded-2xl transition-all duration-300 hover:bg-white/80 hover:shadow-xl hover:border-gray-200/80 border border-transparent cursor-pointer"
+            className="absolute top-0 right-0 max-w-[320px] xl:max-w-[360px] text-right space-y-2 p-4 sm:p-5 rounded-2xl transition-all duration-300 hover:bg-white/80 dark:hover:bg-[#0E131F]/90 hover:shadow-xl dark:hover:shadow-[0_0_30px_-5px_rgba(34,211,238,0.2)] hover:border-gray-200/80 dark:hover:border-white/15 border border-transparent cursor-pointer"
           >
-            <span className="text-xs font-bold tracking-[0.15em] text-cyan-700 uppercase block">
+            <span className="text-xs font-bold tracking-[0.15em] text-cyan-700 dark:text-cyan-400 uppercase block">
               ADVANTAGE
             </span>
-            <h3 className="text-xl sm:text-2xl lg:text-3xl font-extrabold uppercase tracking-tight text-neutral-950 leading-tight">
+            <h3 className="text-xl sm:text-2xl lg:text-3xl font-extrabold uppercase tracking-tight text-neutral-950 dark:text-white leading-tight">
               COMPETITIVE EDGE
             </h3>
-            <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed pt-1 font-normal">
+            <p className="text-xs sm:text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed pt-1 font-normal">
               Sub-15 millisecond private inference and zero data-leakage enterprise agent pipelines.
             </p>
           </motion.div>
@@ -94,15 +94,15 @@ export default function AiExcellenceSection() {
             viewport={{ once: true }}
             whileHover={{ scale: 1.05, y: -4 }}
             transition={{ type: "spring", stiffness: 350, damping: 20 }}
-            className="absolute bottom-0 left-0 max-w-[320px] xl:max-w-[360px] text-left space-y-2 p-4 sm:p-5 rounded-2xl transition-all duration-300 hover:bg-white/80 hover:shadow-xl hover:border-gray-200/80 border border-transparent cursor-pointer"
+            className="absolute bottom-0 left-0 max-w-[320px] xl:max-w-[360px] text-left space-y-2 p-4 sm:p-5 rounded-2xl transition-all duration-300 hover:bg-white/80 dark:hover:bg-[#0E131F]/90 hover:shadow-xl dark:hover:shadow-[0_0_30px_-5px_rgba(34,211,238,0.2)] hover:border-gray-200/80 dark:hover:border-white/15 border border-transparent cursor-pointer"
           >
-            <span className="text-xs font-bold tracking-[0.15em] text-cyan-700 uppercase block">
+            <span className="text-xs font-bold tracking-[0.15em] text-cyan-700 dark:text-cyan-400 uppercase block">
               AI EVOLVES
             </span>
-            <h3 className="text-xl sm:text-2xl lg:text-3xl font-extrabold uppercase tracking-tight text-neutral-950 leading-tight">
+            <h3 className="text-xl sm:text-2xl lg:text-3xl font-extrabold uppercase tracking-tight text-neutral-950 dark:text-white leading-tight">
               FUTURE PROOF ARCHITECTURE
             </h3>
-            <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed pt-1 font-normal">
+            <p className="text-xs sm:text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed pt-1 font-normal">
               Decoupled model routers allowing you to hot-swap between Claude, OpenAI, and open-weight models.
             </p>
           </motion.div>
@@ -114,15 +114,15 @@ export default function AiExcellenceSection() {
             viewport={{ once: true }}
             whileHover={{ scale: 1.05, y: -4 }}
             transition={{ type: "spring", stiffness: 350, damping: 20 }}
-            className="absolute bottom-0 right-0 max-w-[320px] xl:max-w-[360px] text-right space-y-2 p-4 sm:p-5 rounded-2xl transition-all duration-300 hover:bg-white/80 hover:shadow-xl hover:border-gray-200/80 border border-transparent cursor-pointer"
+            className="absolute bottom-0 right-0 max-w-[320px] xl:max-w-[360px] text-right space-y-2 p-4 sm:p-5 rounded-2xl transition-all duration-300 hover:bg-white/80 dark:hover:bg-[#0E131F]/90 hover:shadow-xl dark:hover:shadow-[0_0_30px_-5px_rgba(34,211,238,0.2)] hover:border-gray-200/80 dark:hover:border-white/15 border border-transparent cursor-pointer"
           >
-            <span className="text-xs font-bold tracking-[0.15em] text-cyan-700 uppercase block">
+            <span className="text-xs font-bold tracking-[0.15em] text-cyan-700 dark:text-cyan-400 uppercase block">
               AI CUSTOMIZES
             </span>
-            <h3 className="text-xl sm:text-2xl lg:text-3xl font-extrabold uppercase tracking-tight text-neutral-950 leading-tight">
+            <h3 className="text-xl sm:text-2xl lg:text-3xl font-extrabold uppercase tracking-tight text-neutral-950 dark:text-white leading-tight">
               PERSONALIZED INTELLIGENCE
             </h3>
-            <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed pt-1 font-normal">
+            <p className="text-xs sm:text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed pt-1 font-normal">
               Context-aware embeddings tailored to your exact domain datasets, workflows, and security tiers.
             </p>
           </motion.div>
